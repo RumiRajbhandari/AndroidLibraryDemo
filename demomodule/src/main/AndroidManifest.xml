@@ -1,2 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.demomodule" />
+    package="com.example.demomodule">
+
+    <application>
+        <activity android:name=".ShowTextActivity"></activity>
+    </application>
+
+</manifest>
