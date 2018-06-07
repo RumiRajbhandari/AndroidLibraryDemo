@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/OutletUtilDemo.iml" filepath="$PROJECT_DIR$/OutletUtilDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demomodule/demomodule.iml" filepath="$PROJECT_DIR$/demomodule/demomodule.iml" />
       <module fileurl="file://$PROJECT_DIR$/outletlibrary/outletlibrary.iml" filepath="$PROJECT_DIR$/outletlibrary/outletlibrary.iml" />
     </modules>
   </component>
