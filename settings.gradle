@@ -1,1 +1,1 @@
-include ':app', ':outletlibrary'
+include ':app', ':outletlibrary', ':demomodule'
