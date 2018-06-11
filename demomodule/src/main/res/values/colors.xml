@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#03A9F5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="mainBackground">#EEEEEE</color>
+    <color name="background_color">#F8F8F8</color>
+    <color name="colorPrimaryDarkLogin">#03A9F5</color>
+    <color name="white">#fff</color>
+    <color name="black_38">#61000000</color>
+    <!-- login Activity color -->
+    <color name="outlet_view_Color">#c1b9b9</color>
+    <color name="icon_color">#6D6D6D</color>
+    <color name="azure_two">#1194f7</color>
+    <color name="login_text_white">#fff</color>
+
+
+    <!-- text color -->
+    <color name="primary_text_color">#1F1F1F</color>
+    <color name="secondary_text_color">#8B8B8B</color>
+    <color name="green_text_color">#5fac69</color>
+
+    <!-- Login Activity -->
+    <color name="title_lyt_bg">#dedbdb</color>
+
+    <color name="order_inner_dialog_text">#ff4081</color>
+    <color name="order_inner_dialog_line">#E0E0E0</color>
+    <color name="dashboardcolor">#222222</color>
+    <color name="outlettextcolor">#7F7F7F</color>
+    <color name="outletsubheadercolor">#7E7E7E</color>
+    <color name="colorGrey">#8B8B8B</color>
+    <color name="green">#33b633</color>
+    <color name="picked">#008B00</color>
+    <color name="noPicked">@color/colorAccent</color>
+    <color name="detail_bg">#F9F9F9</color>
+    <color name="detail_child_bg">#FFFFFF</color>
+
+    <color name="orderDetailBg">#F8F8F8</color>
+    <color name="color_horizontal_bar">#FEC107</color>
+
+    <color name="horizontal_progress_backgroung">#EBEBEB</color>
+
+    <!-- Order List Inner -->
+    <color name="progresssbar_color1">#F36D61</color>
+    <color name="progresssbar_color3">#03A9F5</color>
+    <color name="progresssbar_color4">#FF4081</color>
+    <color name="progresssbar_color5">#4BC54A</color>
+    <color name="azure">#23a9f6</color>
+    <color name="shadow_color">#d9d9d9</color>
+
+
+
+    <color name="azure_two_splash">#1194f7</color>
+    <color name="azure_30">#4d23a9f6</color>
+    <color name="azure_50">#8023a9f6</color>
+
+
+
+</resources>
+
+
+

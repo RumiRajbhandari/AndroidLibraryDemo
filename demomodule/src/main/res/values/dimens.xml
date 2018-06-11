@@ -1,0 +1,101 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="vertical_margin">180dp</dimen>
+
+    <!--login Activity dimen. -->
+    <dimen name="login_leftmargin">35dp</dimen>
+    <dimen name="login_rightmargin">35dp</dimen>
+    <dimen name="login_textSize">20sp</dimen>
+    <dimen name="login_imagewidth">120dp</dimen>
+    <dimen name="login_imageheight">45dp</dimen>
+    <dimen name="login_iconheight">18dp</dimen>
+    <dimen name="login_iconwidth">18dp</dimen>
+    <dimen name="login_imagetopmargin">130dp</dimen>
+    <dimen name="login_viewheight">30dp</dimen>
+    <dimen name="Login_rectangle_height">50dp</dimen>
+    <dimen name="login_forgettext">20dp</dimen>
+    <dimen name="login_layout_padding">30dp</dimen>
+    <dimen name="login_title_tMargin">60dp</dimen>
+    <dimen name="login_cardView_elevation">3dp</dimen>
+    <dimen name="login_cardView_tMargin">30dp</dimen>
+    <dimen name="login_cardView_cornerRadius">5dp</dimen>
+    <dimen name="login_cardView_padding">20dp</dimen>
+    <dimen name="login_editText_padding">20dp</dimen>
+    <dimen name="login_text_tMargin">7dp</dimen>
+    <dimen name="login_view_bPadding">15dp</dimen>
+    <dimen name="login_rLyt_tMargin">10dp</dimen>
+    <dimen name="login_button_tMargin">15dp</dimen>
+    <dimen name="title_text_size">50sp</dimen>
+
+    <!--Dashboard fragment dimen. -->
+    <dimen name="layout_padding">6dp</dimen>
+    <dimen name="layout_margin">2dp</dimen>
+    <dimen name="layout_tMargin">5dp</dimen>
+    <dimen name="layout_inPadding">10dp</dimen>
+    <dimen name="txt_tPadding">5dp</dimen>
+    <dimen name="cardview_default_padding">3.5dp</dimen>
+
+
+    <!--outlet listing dimen. -->
+    <dimen name="floating_btn_size">50dp</dimen>
+    <dimen name="outlet_lyt_maxHeight">80dp</dimen>
+    <dimen name="outlet_lyt_minHeight">30dp</dimen>
+    <dimen name="outlet_title_txtSize">20sp</dimen>
+
+    <dimen name="nav_size">35dp</dimen>
+    <dimen name="nav_width">320dp</dimen>
+    <dimen name="tab_icon">60dp</dimen>
+    <dimen name="dash_dim_size">14sp</dimen>
+    <dimen name="dash_no_size">28sp</dimen>
+    <dimen name="dash_heading">16sp</dimen>
+    <dimen name="weather_time_size">14sp</dimen>
+    <dimen name="weather_temp_size">20sp</dimen>
+    <dimen name="weather_temp_head_size">40sp</dimen>
+    <dimen name="outlet_title_textSize">16sp</dimen>
+    <dimen name="outlet_view_width">4dp</dimen>
+    <dimen name="outlet_viewdividerheight">6px</dimen>
+    <dimen name="outlet_viewdividerwidth">320dp</dimen>
+    <dimen name="outlet_layoutheight">76dp</dimen>
+    <dimen name="outlet_layoutmarginleft">10dp</dimen>
+    <dimen name="outlet_layoutmarginright">10dp</dimen>
+    <dimen name="outlet_textmarginleft">16dp</dimen>
+    <dimen name="outlet_basetext">14sp</dimen>
+    <dimen name="outlet_orderimagheight">15dp</dimen>
+    <dimen name="outlet_orderimagwidth">15dp</dimen>
+    <dimen name="outlet_orderimagmargin_left">10dp</dimen>
+    <dimen name="outlet_orderimagmargin_top">8dp</dimen>
+    <dimen name="outlet_storeimage_width">23dp</dimen>
+    <dimen name="outlet_storeimage_height">30dp</dimen>
+    <dimen name="outlet_texttime_topmargin">5dp</dimen>
+    <dimen name="outlet_txttime_size">10dp</dimen>
+
+    <dimen name="login_btn_topmargin">12dp</dimen>
+    <dimen name="login_view_leftmargin">35dp</dimen>
+    <dimen name="login_view_rightmargin">35dp</dimen>
+    <dimen name="login_view_topmargin">10dp</dimen>
+
+    <dimen name="route_spinner_txt_size">14sp</dimen>
+    <dimen name="nav_icon_size">45dp</dimen>
+    <dimen name="nav_space">8dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="app_bar_height">265dp</dimen>
+    <dimen name="padding_left">10dp</dimen>
+    <dimen name="padding_right">10dp</dimen>
+    <dimen name="store_item_decore">10dp</dimen>
+    <dimen name="outlet_header_height">51dp</dimen>
+
+    <dimen name="layout_margin1">20dp</dimen>
+    <dimen name="spacing_16">16dp</dimen>
+    <dimen name="spacing_8">8dp</dimen>
+    <dimen name="spacing_4">4dp</dimen>
+    <dimen name="spacing_2">2dp</dimen>
+    <dimen name="padding_right_productivity">13dp</dimen>
+    <dimen name="default_circle_indicator_radius">1dp</dimen>
+
+    <dimen name="image_holder_width">160dp</dimen>
+    <dimen name="image_holder_height">90dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">200dp</dimen>
+</resources>

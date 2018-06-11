@@ -1,3 +1,130 @@
 <resources>
-    <string name="app_name">demoModule</string>
+    <string name="app_name">ROSIA</string>
+    <string name="phone_no">Phone No.</string>
+    <string name="pin_no">Pin No.</string>
+    <string name="phone_required_error">Please enter your phone number</string>
+    <string name="phone_digit_error">Phone numbers should have 10 digits</string>
+    <string name="password_required_error">Please enter your pin number</string>
+    <string name="forget_password">Forgot Password ?</string>
+    <string name="password">Password</string>
+    <string name="drawer_open">open</string>
+    <string name="drawer_close">close</string>
+    <string name="google_app_id_map">AIzaSyBjL0AY5GXuwiHTIu-eGmC1xr9mkziP224</string>
+    <string name="PREF_TOKEN">number</string>
+    <string name="weather_api_key">jHZYMJ8TDMRMomwvhFLseBnjvRsrJspqwl9xEbZFMXYy5fKxEYbVhqb6lw8eC4Kc</string>
+    <string name="salesOrders">Sales Orders</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_edit_profile">Edit Profile</string>
+    <string name="action_not_synced">Mail unsynced Orders</string>
+    <string name="str_login_mob">MOBILE</string>
+    <string name="str_login_pin">PIN</string>
+    <string name="str_login_lost">Lost my PIN</string>
+    <string name="str_login_sign">SIGN IN</string>
+    <string name="msg_no_route">No routes available.</string>
+    <string name="str_scheduled_call">Scheduled calls</string>
+    <string name="str_call_made">Calls made</string>
+    <string name="str_time_elapsed">Time elapsed</string>
+    <string name="str_weather">Weather</string>
+    <string name="str_today">Today</string>
+    <string-array name="more_item">
+        <item>Transfer to another route</item>
+        <item>Merge or link</item>
+        <item>Remove from coverage </item>
+        <item>Change position</item>
+    </string-array>
+    <string name="fabric_bcp_period">Call Period</string>
+    <string name="fabric_bcp_time">BCP TIME</string>
+    <string name="fabric_route_enable">Route Enable</string>
+    <string name="fabric_open_outlet">Open Outlet</string>
+    <string name="fabric_start_call">Start Call</string>
+    <string name="fabric_end_call">End Call</string>
+    <string name="fabric_end_no_call">End No Order Call</string>
+    <string name="fabric_sb_opened">Open Sbd</string>
+    <string name="fabric_order_sbd">Order From Sbd</string>
+    <string name="fabric_order_brand">Order From Brand</string>
+    <string name="fabric_order_promotion">Order From Promotion</string>
+    <string name="fabric_order_summary">Order Edit From Summary</string>
+    <string name="fabric_item_promo">Non Promotion</string>
+    <string name="fabric_item_non_promo">Promotion</string>
+    <string name="fabric_content_type_other">Other</string>
+    <string name="action_sync_image">Device Image Sync</string>
+    <string name="action_notify_image_uploaded">Image Uploaded Notification for Server</string>
+    <string name="notification_text_image_sync_start">Device images are being sent to the server. Thank you for your patience.</string>
+    <string name="notification_text_image_notify_image_uploaded">Notifying ROSIA about the images you have uploaded. Thank you for your patience.</string>
+    <string name="notification_text_image_notify_image_uploaded_complete">ROSIA has received notification about your contributions. Thank you.</string>
+    <string name="notification_text_image_notify_image_uploaded_error">Oops… we ran into trouble while communicating with ROSIA. Please try again.</string>
+    <string name="notification_text_image_sync_complete">Images were successfully sent to the server. Thank you for your contribution!</string>
+    <string name="notification_text_image_sync_error">Oops… we ran into trouble while syncing images. Please try again.</string>
+    <string name="sync_image">Sync Device Images</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="today">Today</string>
+    <string name="routes">Routes</string>
+    <string name="update_app">Update App</string>
+    <string name="log_out">Log out</string>
+
+    <string name="rosia_sales">Rosia Sales</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="calls">Calls</string>
+    <string name="call_made">Calls Made</string>
+    <string name="successful">Successful</string>
+    <string name="unsuccessful">Unsuccessful</string>
+    <string name="not_performed">Not Performed</string>
+    <string name="active">Active</string>
+    <string name="inactive">Inactive</string>
+    <string name="dses">DSEs</string>
+    <string name="sales">Sales</string>
+    <string name="coverage">Coverage</string>
+    <string name="productivity">Productivity</string>
+    <string name="sbd">SBD</string>
+    <string name="total">Total </string>
+    <string name="total_amount">1234.22 </string>
+    <string name="received">Received </string>
+    <string name="received_amount">9999999</string>
+    <string name="invoiced">Invoiced </string>
+    <string name="invoiced_amount">347894985</string>
+    <string name="dispatched">Dispatched </string>
+    <string name="dispatched_amount">18279873</string>
+    <string name="delivered">Delivered </string>
+    <string name="delivery_amount">1397237</string>
+    <string name="scheduled">Scheduled</string>
+    <string name="scheduled_call">Scheduled Calls</string>
+    <string name="callage">Callage</string>
+    <string name="dse_status">DSEs Status</string>
+    <string name="reset">RESET</string>
+    <string name="filter">FILTER</string>
+    <string name="subds">Sub-D\'s</string>
+    <string name="channel">Channel</string>
+    <string name="brand_coverage">Brand Coverage</string>
+    <string name="channel_category">Channel/Category</string>
+    <string name="view_by">View By</string>
+    <string name="brand">Brand</string>
+    <string-array name="date_filter_options">
+        <item>Today</item>
+        <item>MTD</item>
+        <item>P3M</item>
+        <item>P6M</item>
+    </string-array>
+    <string-array name="sbd_view_by">
+        <item>Subd\'s</item>
+        <item>Channel</item>
+    </string-array>
+
+    <string-array name="brandcoverage_view_by">
+        <item>Channel</item>
+        <item>Subd\'s</item>
+    </string-array>
+    <string name="call_history">Call History</string>
+    <string name="contact">Contact</string>
+    <string name="contact_number">Contact Number</string>
+    <string name="order_history">Order History</string>
+
+    <string name="title_activity_callage">CallageActivity</string>
+    <string name="title_activity_dses_status">DSEsStatusActivity</string>
+    <string name="loading">Loading...</string>
+    <string name="error">Error Occurred</string>
 </resources>
