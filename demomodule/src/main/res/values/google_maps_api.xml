@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="google_maps_key">AIzaSyC7X1NEnfOa7OzBdbqD6y6RXeIgOP9tYBA</string>
+    <!--<string name="google_maps_key">AIzaSyC7X1NEnfOa7OzBdbqD6y6RXeIgOP9tYBA</string>-->
+    <string name="google_maps_key">AIzaSyCbUW6UW0qQYva8-x2RipRANSNE7ubiUuo</string>
 </resources>

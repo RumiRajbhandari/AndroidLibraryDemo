@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.MenuItem
 import com.example.demomodule.R
+import com.example.demomodule.base.BaseActivity
 import com.example.demomodule.databinding.ActivityOrderHistoryBinding
 import com.example.demomodule.outletDetail.formatDate
 import com.example.demomodule.outletDetail.formatMonths
@@ -22,7 +23,7 @@ import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
 
-class OrderHistoryActivity : DaggerAppCompatActivity(), OrderHistoryContract.View {
+class OrderHistoryActivity : BaseActivity(), OrderHistoryContract.View {
 
     @Inject
     lateinit var presenter: OrderHistoryContract.Presenter
@@ -60,7 +61,7 @@ class OrderHistoryActivity : DaggerAppCompatActivity(), OrderHistoryContract.Vie
 
 
     override fun showError(message: String) {
-//        super.showError(this.binding, message)
+        super.showError(this.binding, message)
     }
 
     override fun showNetworkNotAvailableError() {
@@ -68,7 +69,7 @@ class OrderHistoryActivity : DaggerAppCompatActivity(), OrderHistoryContract.Vie
     }
 
     override fun showOrderHistorySuccess(orderHistoryItems: List<OrderHistory>) {
-//        super.showData(this.binding)
+        super.showData(this.binding)
         val rvBaseRecyclerView = this.binding.rvBaseOrderHistory
         groupAdapter = GroupAdapter()
         val groups = orderHistoryItems.groupBy { item ->
@@ -105,9 +106,6 @@ class OrderHistoryActivity : DaggerAppCompatActivity(), OrderHistoryContract.Vie
         }
     }
 
-    override fun getContext(): Context {
-        return this
-    }
 }
 
 

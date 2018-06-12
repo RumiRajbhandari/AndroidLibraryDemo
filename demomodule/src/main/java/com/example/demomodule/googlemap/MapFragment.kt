@@ -52,11 +52,6 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         mapView.onResume()
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        mapView.onDestroy()
-    }
-
     override fun onLowMemory() {
         super.onLowMemory()
         mapView.onLowMemory()

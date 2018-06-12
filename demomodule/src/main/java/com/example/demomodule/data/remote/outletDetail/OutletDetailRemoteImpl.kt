@@ -3,7 +3,6 @@ package com.rosia.data.source.remote.outletDetail
 import com.example.demomodule.data.remote.BaseResponse
 import com.example.demomodule.data.remote.RetrofitApiService
 import com.rosia.domain.outletDetail.CallHistoryResponseModel
-import com.rosia.domain.outletDetail.OrderHistoryResponseModel
 import com.rosia.domain.outletDetail.OutletResponseModel
 import io.reactivex.Observable
 import javax.inject.Inject
@@ -20,7 +19,4 @@ class OutletDetailRemoteImpl @Inject constructor(private var apiService: Retrofi
         return apiService.getCallHistoryData(outletId,3)
     }
 
-    override fun getOrderHistory(routeId: Int): Observable<BaseResponse<OrderHistoryResponseModel>> {
-        return apiService.getOrderHistoryData(routeId,3)
-    }
 }

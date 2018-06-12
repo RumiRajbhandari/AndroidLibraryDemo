@@ -5,10 +5,13 @@ import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.view.View
+import com.example.demomodule.FabButtonClickListener
 import com.example.demomodule.R
+import com.example.demomodule.base.BaseActivity
 import com.example.demomodule.databinding.ActivityOutletDetailBinding
 import com.google.android.gms.maps.model.LatLng
-import com.rosia.domain.outletDetail.CallHistoryData
+import com.rosia.domain.outletDetail.CallHistory
 import com.rosia.domain.outletDetail.OutletDetail
 import com.rosia.googlemap.MapFragment
 import com.rosia.orderhistory.OrderHistoryActivity
@@ -16,16 +19,12 @@ import com.xwray.groupie.ExpandableGroup
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Section
 import com.xwray.groupie.ViewHolder
-import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_outlet_detail.*
 import kotlinx.android.synthetic.main.content_outlet_detail.view.*
 import javax.inject.Inject
 
 
-class OutletDetailActivity : DaggerAppCompatActivity(),OutletDetailPageContract.View {
-
-
-
+class OutletDetailActivity : BaseActivity(),OutletDetailPageContract.View {
 
     @Inject
     lateinit var outletDetailPresenter: OutletDetailPageContract.Presenter
@@ -33,6 +32,7 @@ class OutletDetailActivity : DaggerAppCompatActivity(),OutletDetailPageContract.
     private lateinit var outletBinding: ActivityOutletDetailBinding
     private val groupAdapter = GroupAdapter<ViewHolder>()
     private var outletId=0
+    private var fabVisibility=false
     private var outletLocation: LatLng = LatLng(0.0, 0.0)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,8 +47,9 @@ class OutletDetailActivity : DaggerAppCompatActivity(),OutletDetailPageContract.
         }
 
         outletId = intent.getIntExtra("id", 0)
+        fabVisibility = intent.getBooleanExtra("visibility",false)
 
-        outletDetailPresenter.onGetCallHistory(outletId)
+        outletDetailPresenter.onGetOutletData(outletId)
         outletBinding.root.rv_outlet_detail.apply {
             layoutManager = LinearLayoutManager(this@OutletDetailActivity)
             adapter = groupAdapter
@@ -58,12 +59,18 @@ class OutletDetailActivity : DaggerAppCompatActivity(),OutletDetailPageContract.
             OrderHistoryActivity.start(this, outletId)
         }
 
+        if (fabVisibility){
+            outletBinding.favStartCall.visibility=View.VISIBLE
+            outletBinding.favStartCall.setOnClickListener (FabButtonClickListener())
+
+        }
+
     }
 
 
-    override fun getCallHistorySuccess(callHistoryData: CallHistoryData) {
+    override fun getCallHistorySuccess(callHistoryList: List<CallHistory>) {
         println("get call history success")
-        val list: List<CallHistoryChildItem> = callHistoryData.callHistoryList.map { CallHistoryChildItem(it) }
+        val list: List<CallHistoryChildItem> = callHistoryList.map { CallHistoryChildItem(it) }
         if (!list.isEmpty())
             //TODO change this
             ExpandableGroup(CallHistoryParentItem("2.20"), false).apply {
@@ -88,27 +95,17 @@ class OutletDetailActivity : DaggerAppCompatActivity(),OutletDetailPageContract.
 
 
     override fun showError(errorMessage: String) {
-        //TODO
-//        super.showError(outletBinding, errorMessage)
+        super.showError(outletBinding, errorMessage)
     }
 
     override fun showLoading(loading: String) {
-//        super.showLoading(outletBinding)
+        super.showLoading(outletBinding)
     }
 
     companion object {
-        fun getIntent(context: Context?, id: Int): Intent = Intent(context, OutletDetailActivity::class.java).putExtra("id", id)
+        fun start(context: Context?, outletId: Int, fabButtonVisibility:Boolean=false) =context?.startActivity(Intent(context, OutletDetailActivity::class.java).putExtra("id", outletId).putExtra("visibility",fabButtonVisibility))
+
+
     }
-
-
-//    override fun onDestroy() {
-////        super.onDestroy()
-//        outletDetailPresenter.stop()
-//    }
-
-    override fun getContext(): Context {
-        return this
-    }
-
 
 }

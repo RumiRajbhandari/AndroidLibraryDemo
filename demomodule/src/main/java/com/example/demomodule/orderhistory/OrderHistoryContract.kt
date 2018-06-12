@@ -11,10 +11,9 @@ interface OrderHistoryContract {
         fun getOutletId(): Int
         fun showNetworkNotAvailableError()
         fun showError(message: String)
-
     }
 
     interface Presenter : BasePresenter {
-
+        fun getOrderItemLocal()
     }
 }

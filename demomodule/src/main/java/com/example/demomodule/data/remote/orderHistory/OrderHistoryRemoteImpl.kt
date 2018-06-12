@@ -7,7 +7,7 @@ import io.reactivex.Observable
 import javax.inject.Inject
 
 
-class OrderHistoryRemoteImpl @Inject constructor(private var apiService: RetrofitApiService) : OrderHistoryRemote {
+class OrderHistoryRemoteImpl @Inject constructor(private var apiService: RetrofitApiService):OrderHistoryRemote {
 
     override fun getOrderHistory(routeId: Int): Observable<BaseResponse<OrderHistoryResponseModel>> {
         //TODO change routeId

@@ -48,6 +48,17 @@
         <include
             layout="@layout/content_outlet_detail"
             app:outlet="@{outlet}" />
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fav_start_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:clickable="true"
+            android:visibility="gone"
+            android:src="@drawable/ic_play_vector"
+            app:layout_anchor="@+id/appbar"
+            app:layout_anchorGravity="bottom|end" />
+
 
     </android.support.design.widget.CoordinatorLayout>
 

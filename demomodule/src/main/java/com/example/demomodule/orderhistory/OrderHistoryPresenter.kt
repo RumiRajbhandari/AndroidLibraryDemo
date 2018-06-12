@@ -13,15 +13,7 @@ class OrderHistoryPresenter @Inject constructor(var view: OrderHistoryContract.V
     private var disposable: Disposable? = null
 
     override fun start() {
-        disposable = repository.getOrderHistory(view.getOutletId())
-                .subscribe({
-                    println("on next order history$it")
-                    view.showOrderHistorySuccess(groupOrderHistoryByMonth(it.orderHistoryList))
-//                    groupOrderHistoryByMonth(it.orderHistoryList)
-                }, {
-                    println("on error order history"+it.message)
-                    view.showError(ErrorMessageFactory.createMessage(it))
-                })
+        getOrderItemLocal()
     }
 
 
@@ -29,14 +21,24 @@ class OrderHistoryPresenter @Inject constructor(var view: OrderHistoryContract.V
         disposable?.dispose()
     }
 
-    fun groupOrderHistoryByMonth(orderItemList: List<OrderItem>):List<OrderHistory>{
+    override fun getOrderItemLocal() {
+        disposable = repository.getOrderHistoryLocal(view.getOutletId())
+                .subscribe({
+                    println("on next order history$it")
+                    view.showOrderHistorySuccess(groupOrderHistoryByMonth(it))
+                }, {
+                    println("on error order history"+it.message)
+                    view.showError(ErrorMessageFactory.createMessage(it))
+                })
+    }
+
+    private fun groupOrderHistoryByMonth(orderItemList: List<OrderItem>):List<OrderHistory>{
         val group=orderItemList.groupBy { orderItemList-> formatMilliSecondToMonth(orderItemList.date) }
+        println("group is $group")
         val orderHistoryList= mutableListOf<OrderHistory>()
-        println("order history is "+group)
         group.forEach{
             var orderHistory=OrderHistory(it.key, it.value)
             orderHistoryList.add(orderHistory)
-
         }
         return orderHistoryList
 

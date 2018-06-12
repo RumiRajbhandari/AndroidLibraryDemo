@@ -5,7 +5,7 @@ import com.rosia.domain.outletDetail.*
 import com.rosia.exceptions.ErrorMessageFactory
 import io.reactivex.Observable
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.functions.BiFunction
+import io.reactivex.functions.Function3
 
 
 class OutletDetailPagePresenter(private var outletDetailView: OutletDetailPageContract.View, private var repository: OutletDetailRepository) : OutletDetailPageContract.Presenter {
@@ -18,40 +18,49 @@ class OutletDetailPagePresenter(private var outletDetailView: OutletDetailPageCo
         disposable.dispose()
     }
 
-
-    override fun onGetCallHistory(id: Int) {
-        println("get call history presenter")
+    override fun onGetOutletData(id: Int) {
         outletDetailView.showLoading("Loading")
 
         Observable.zip(
                 repository.getOutletDetail(id),
                 repository.getCallHistory(id),
-                BiFunction{ outletResponseModel:OutletResponseModel,
-                               callHistoryResponseModel:CallHistoryResponseModel ->
-                    OutletEntity(outletResponseModel.outletDetail,CallHistoryData(callHistoryResponseModel.calls))
+                repository.getOrderHistory(id),
+                Function3 { outletDetail: OutletDetail,
+                            callHistoryList: List<CallHistory>,
+                            orderItemList: List<OrderItem> ->
+                    OutletEntity(outletDetail, CallHistoryData(callHistoryList))
                 }
         ).subscribe(
                 {
                     println("on next ${it.callHistoryData} ${it.outletDetail}")
-                    outletDetailView.getCallHistorySuccess(it.callHistoryData)
-                    outletDetailView.getOutletDetailSuccess(it.outletDetail)
+
                 },
                 {
                     outletDetailView.showError(ErrorMessageFactory.createMessage(it))
-                },{}
+                }, {
+            onGetOutletDetail(id)
+            onGetCallHistory(id)
+        }
         )
     }
 
     override fun onGetOutletDetail(id: Int) {
         outletDetailView.showLoading("Loading")
-        disposable.add(repository.getOutletDetail(id).subscribe(
+        disposable.add(repository.getOutletDetailLocal(id).subscribe(
                 {
-                    outletDetailView.getOutletDetailSuccess(it.outletDetail)
+                    outletDetailView.getOutletDetailSuccess(it)
                 }, {
             outletDetailView.showError(ErrorMessageFactory.createMessage(it))
-        }
-        )
-        )
+        }))
+    }
+
+    override fun onGetCallHistory(id: Int) {
+        disposable.add(repository.getCallHistoryLocal(id).subscribe(
+                {
+                    outletDetailView.getCallHistorySuccess(it)
+                }, {
+            outletDetailView.showError(ErrorMessageFactory.createMessage(it))
+        }))
     }
 
     override fun showError(errorMessage: String) {
