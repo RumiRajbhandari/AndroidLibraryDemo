@@ -8,7 +8,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.example.demomodule.FabButtonClickListener
 import com.example.demomodule.R
-import com.example.demomodule.base.BaseActivity
+import com.example.demomodule.base.BasesActivity
 import com.example.demomodule.databinding.ActivityOutletDetailsBinding
 import com.example.demomodule.entity.User
 import com.google.android.gms.maps.model.LatLng
@@ -25,10 +25,10 @@ import kotlinx.android.synthetic.main.content_outlet_details.view.*
 import javax.inject.Inject
 
 
-class OutletsDetailsActivity : BaseActivity(),OutletDetailsPageContract.View {
+class OutletsDetailsActivity : BasesActivity(),OutletDetailsPageContract.View {
 
     @Inject
-    lateinit var outletDetailsPresenter: OutletDetailsPageContract.Presenter
+    lateinit var outletDetailsPresenter: OutletDetailsPageContract.Presenters
 
     private lateinit var outletBinding: ActivityOutletDetailsBinding
     private val groupAdapter = GroupAdapter<ViewHolder>()

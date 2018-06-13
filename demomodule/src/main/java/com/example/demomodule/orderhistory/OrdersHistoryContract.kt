@@ -1,19 +1,19 @@
 package com.rosia.orderhistory
 
-import com.rosia.base.BasePresenter
-import com.rosia.base.BaseView
+import com.rosia.base.BasesPresenter
+import com.rosia.base.BasesView
 import com.rosia.domain.outletDetail.OrderHistory
 
 interface OrdersHistoryContract {
 
-    interface View : BaseView<Presenter> {
+    interface View : BasesView<Presenters> {
         fun showOrderHistorySuccess(orderHistoryItems: List<OrderHistory>)
         fun getOutletId(): Int
         fun showNetworkNotAvailableError()
         fun showError(message: String)
     }
 
-    interface Presenter : BasePresenter {
+    interface Presenters : BasesPresenter {
         fun getOrderItemLocal()
     }
 }

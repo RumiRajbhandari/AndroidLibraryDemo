@@ -9,7 +9,7 @@ import io.reactivex.disposables.Disposable
 import javax.inject.Inject
 
 
-class OrdersHistoryPresenter @Inject constructor(var view: OrdersHistoryContract.View, var repository: OrderHistorysRepositoryImpl) : OrdersHistoryContract.Presenter {
+class OrdersHistoryPresenters @Inject constructor(var view: OrdersHistoryContract.View, var repository: OrderHistorysRepositoryImpl) : OrdersHistoryContract.Presenters {
     private var disposable: Disposable? = null
 
     override fun start() {

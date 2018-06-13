@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.MenuItem
 import com.example.demomodule.R
-import com.example.demomodule.base.BaseActivity
+import com.example.demomodule.base.BasesActivity
 import com.example.demomodule.databinding.ActivityOrderHistorysBinding
 import com.example.demomodule.outletDetail.formatDate
 import com.example.demomodule.outletDetail.formatMonths
@@ -21,10 +21,10 @@ import com.xwray.groupie.kotlinandroidextensions.ViewHolder
 import javax.inject.Inject
 
 
-class OrdersHistoryActivity : BaseActivity(), OrdersHistoryContract.View {
+class OrdersHistoryActivity : BasesActivity(), OrdersHistoryContract.View {
 
     @Inject
-    lateinit var presenter: OrdersHistoryContract.Presenter
+    lateinit var presenter: OrdersHistoryContract.Presenters
     private lateinit var groupAdapter: GroupAdapter<ViewHolder>
     private lateinit var binding: ActivityOrderHistorysBinding
 

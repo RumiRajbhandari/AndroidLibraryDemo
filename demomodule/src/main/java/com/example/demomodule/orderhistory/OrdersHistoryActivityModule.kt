@@ -27,8 +27,8 @@ class OrdersHistoryActivityModule {
 
     @ActivityScoped
     @Provides
-    fun provideOrderHistoryPresenter(view: OrdersHistoryContract.View, repository: OrderHistorysRepositoryImpl): OrdersHistoryContract.Presenter {
-        return OrdersHistoryPresenter(view, repository)
+    fun provideOrderHistoryPresenter(view: OrdersHistoryContract.View, repository: OrderHistorysRepositoryImpl): OrdersHistoryContract.Presenters {
+        return OrdersHistoryPresenters(view, repository)
     }
 
     @Provides

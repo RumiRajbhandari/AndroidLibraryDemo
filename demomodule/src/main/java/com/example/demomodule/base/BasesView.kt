@@ -5,6 +5,6 @@ import android.content.Context
 /**
  * Created by subrat on 3/24/18.
  */
-interface BaseView<T : BasePresenter> {
+interface BasesView<T : BasesPresenter> {
    fun getContext(): Context
 }

@@ -1,21 +1,20 @@
 package com.rosia.outletdetail
 
 import com.example.demomodule.entity.User
-import com.rosia.base.BasePresenter
-import com.rosia.base.BaseView
+import com.rosia.base.BasesPresenter
+import com.rosia.base.BasesView
 import com.rosia.domain.outletDetail.CallHistory
-import com.rosia.domain.outletDetail.CallHistoryData
 import com.rosia.domain.outletDetail.OutletDetail
 
 interface OutletDetailsPageContract {
-    interface View: BaseView<Presenter> {
+    interface View: BasesView<Presenters> {
         fun getOutletDetailSuccess(outletDetail: OutletDetail)
         fun getCallHistorySuccess(callHistoryList: List<CallHistory>)
         fun showError(errorMessage: String)
         fun showLoading(loading: String="Loading")
     }
 
-    interface Presenter: BasePresenter {
+    interface Presenters: BasesPresenter {
         fun onGetOutletDetail(id: Int)
         fun onGetCallHistory(id: Int)
         fun onGetOutletData(id: Int)

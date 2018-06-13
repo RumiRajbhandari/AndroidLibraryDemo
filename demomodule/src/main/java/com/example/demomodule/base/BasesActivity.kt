@@ -10,7 +10,7 @@ import com.example.demomodule.R
 import dagger.android.support.DaggerAppCompatActivity
 
 
-abstract class BaseActivity : DaggerAppCompatActivity() {
+abstract class BasesActivity : DaggerAppCompatActivity() {
 
     fun <T : ViewDataBinding> showLoading(binding: T?) {
         binding?.root?.findViewById<RelativeLayout>(R.id.loadingLayout)?.visibility = View.VISIBLE

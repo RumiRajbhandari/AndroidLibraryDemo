@@ -38,8 +38,8 @@ class OutletDetailsActivityModule {
 
     @ActivityScoped
     @Provides
-    internal fun provideOutletDetailPresenter(outletView: OutletDetailsPageContract.View, repository: OutletDetailsRepositoryImpl, userRepository: UsersRepositoryImpl): OutletDetailsPageContract.Presenter {
-        return OutletDetailsPagePresenter(outletView, repository,userRepository)
+    internal fun provideOutletDetailPresenter(outletView: OutletDetailsPageContract.View, repository: OutletDetailsRepositoryImpl, userRepository: UsersRepositoryImpl): OutletDetailsPageContract.Presenters {
+        return OutletDetailsPagePresenters(outletView, repository,userRepository)
     }
 
     @Remote

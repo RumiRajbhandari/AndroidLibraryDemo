@@ -10,9 +10,9 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.functions.Function3
 
 
-class OutletDetailsPagePresenter(private var outletDetailsView: OutletDetailsPageContract.View,
-                                 private var repository: OutletDetailsRepository,
-                                 private var usersRepository: UsersRepository) : OutletDetailsPageContract.Presenter {
+class OutletDetailsPagePresenters(private var outletDetailsView: OutletDetailsPageContract.View,
+                                  private var repository: OutletDetailsRepository,
+                                  private var usersRepository: UsersRepository) : OutletDetailsPageContract.Presenters {
 
     private var disposable = CompositeDisposable()
     override fun start() {
