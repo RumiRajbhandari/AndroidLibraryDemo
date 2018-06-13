@@ -10,8 +10,7 @@ import javax.inject.Inject
 class OrderHistoryRemoteImpl @Inject constructor(private var apiService: RetrofitApiService):OrderHistoryRemote {
 
     override fun getOrderHistory(routeId: Int): Observable<BaseResponse<OrderHistoryResponseModel>> {
-        //TODO change routeId
-        return apiService.getOrderHistoryData(2, 12)
+        return apiService.getOrderHistoryData(routeId, 12)
     }
 
 }

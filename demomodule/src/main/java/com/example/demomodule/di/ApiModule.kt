@@ -1,7 +1,9 @@
 package com.example.demomodule.di
 
+import android.content.Context
 import com.example.demomodule.data.remote.ApiInterceptor
 import com.example.demomodule.data.remote.RetrofitApiService
+import com.example.demomodule.pref.SharedPreferenceManager
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.google.gson.Gson
 import dagger.Module
@@ -14,9 +16,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
-/**
- * Created by subrat on 3/24/18.
- */
 
 @Module
 open class ApiModule {
@@ -28,11 +27,11 @@ open class ApiModule {
         return Gson()
     }
 
-//    @Singleton
-//    @Provides
-//    internal fun provideSharePreference(context: Context): SharedPreferenceManager {
-//        return SharedPreferenceManager(context)
-//    }
+    @Singleton
+    @Provides
+    internal fun provideSharePreference(context: Context): SharedPreferenceManager {
+        return SharedPreferenceManager(context)
+    }
 
     @Provides
     @Singleton
@@ -52,7 +51,7 @@ open class ApiModule {
     @Singleton
     open fun remoteRepo(gson: Gson, client: OkHttpClient): RetrofitApiService {
         return Retrofit.Builder()
-                .baseUrl("http://89.31.63.246/api/v1/")
+                .baseUrl("http://89.31.63.171/api/v1/")
                 .client(client) //client is for logging the request and response
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.createAsync())

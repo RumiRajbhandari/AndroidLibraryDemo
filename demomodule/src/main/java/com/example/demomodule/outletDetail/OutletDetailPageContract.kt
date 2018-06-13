@@ -1,5 +1,6 @@
 package com.rosia.outletdetail
 
+import com.example.demomodule.entity.User
 import com.rosia.base.BasePresenter
 import com.rosia.base.BaseView
 import com.rosia.domain.outletDetail.CallHistory
@@ -19,6 +20,7 @@ interface OutletDetailPageContract {
         fun onGetCallHistory(id: Int)
         fun onGetOutletData(id: Int)
         fun showError(errorMessage: String)
+        fun saveUserToken(user:User)
 
     }
 }

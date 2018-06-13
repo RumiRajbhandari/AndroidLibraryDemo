@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName
  * Created by rumi on 5/17/18.
  */
 class OutletDetail (
-        @SerializedName("id")
+        @SerializedName("retailOutletId")
         @Expose val id: Int,
 
         @SerializedName("reatilOutletName")

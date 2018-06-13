@@ -10,6 +10,7 @@ import com.example.demomodule.FabButtonClickListener
 import com.example.demomodule.R
 import com.example.demomodule.base.BaseActivity
 import com.example.demomodule.databinding.ActivityOutletDetailBinding
+import com.example.demomodule.entity.User
 import com.google.android.gms.maps.model.LatLng
 import com.rosia.domain.outletDetail.CallHistory
 import com.rosia.domain.outletDetail.OutletDetail
@@ -33,6 +34,7 @@ class OutletDetailActivity : BaseActivity(),OutletDetailPageContract.View {
     private val groupAdapter = GroupAdapter<ViewHolder>()
     private var outletId=0
     private var fabVisibility=false
+    lateinit var token:String
     private var outletLocation: LatLng = LatLng(0.0, 0.0)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,7 +50,9 @@ class OutletDetailActivity : BaseActivity(),OutletDetailPageContract.View {
 
         outletId = intent.getIntExtra("id", 0)
         fabVisibility = intent.getBooleanExtra("visibility",false)
+        token = intent.getStringExtra("token")
 
+        outletDetailPresenter.saveUserToken(User(token))
         outletDetailPresenter.onGetOutletData(outletId)
         outletBinding.root.rv_outlet_detail.apply {
             layoutManager = LinearLayoutManager(this@OutletDetailActivity)
@@ -69,11 +73,9 @@ class OutletDetailActivity : BaseActivity(),OutletDetailPageContract.View {
 
 
     override fun getCallHistorySuccess(callHistoryList: List<CallHistory>) {
-        println("get call history success")
         val list: List<CallHistoryChildItem> = callHistoryList.map { CallHistoryChildItem(it) }
         if (!list.isEmpty())
-            //TODO change this
-            ExpandableGroup(CallHistoryParentItem("2.20"), false).apply {
+            ExpandableGroup(CallHistoryParentItem(""), false).apply {
                 add(Section(list))
                 groupAdapter.add(this)
             }
@@ -81,7 +83,6 @@ class OutletDetailActivity : BaseActivity(),OutletDetailPageContract.View {
 
 
     override fun getOutletDetailSuccess(outletDetail: OutletDetail) {
-        println("get oulet detail success")
         outletBinding.outlet = outletDetail
         outletId = this.outletId
         outletBinding.root.tv_order_history.setOnClickListener {
@@ -103,7 +104,10 @@ class OutletDetailActivity : BaseActivity(),OutletDetailPageContract.View {
     }
 
     companion object {
-        fun start(context: Context?, outletId: Int, fabButtonVisibility:Boolean=false) =context?.startActivity(Intent(context, OutletDetailActivity::class.java).putExtra("id", outletId).putExtra("visibility",fabButtonVisibility))
+        fun start(context: Context?,token:String, outletId: Int, fabButtonVisibility:Boolean=false) =context?.startActivity(Intent(context, OutletDetailActivity::class.java)
+                .putExtra("id", outletId)
+                .putExtra("visibility",fabButtonVisibility)
+                .putExtra("token",token))
 
 
     }

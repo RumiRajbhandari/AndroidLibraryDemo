@@ -7,14 +7,14 @@ import android.view.View
  */
 open class FabButtonClickListener : View.OnClickListener{
     companion object {
-        protected var onButtonClicked:OnButtonClicked?=null
+        protected var onFabButtonClicked:OnFabButtonClicked?=null
 
-        fun setOnFabButtonClickListener(onButtonClicked: OnButtonClicked){
-            this.onButtonClicked= onButtonClicked
+        fun setOnFabButtonClickListener(onFabButtonClicked: OnFabButtonClicked){
+            this.onFabButtonClicked= onFabButtonClicked
         }
     }
 
     override fun onClick(p0: View?) {
-        onButtonClicked?.onClickButton("hey how are you")
+        onFabButtonClicked?.onClickButton()
     }
 }

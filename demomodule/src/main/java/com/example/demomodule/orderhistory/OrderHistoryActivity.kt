@@ -89,7 +89,6 @@ class OrderHistoryActivity : BaseActivity(), OrderHistoryContract.View {
                 }
             }
         }
-        //TODO
         rvBaseRecyclerView.apply {
             layoutManager = LinearLayoutManager(this@OrderHistoryActivity)
             adapter = groupAdapter
