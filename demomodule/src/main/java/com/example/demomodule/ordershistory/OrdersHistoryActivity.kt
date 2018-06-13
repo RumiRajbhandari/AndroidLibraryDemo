@@ -9,8 +9,8 @@ import android.view.MenuItem
 import com.example.demomodule.R
 import com.example.demomodule.base.BasesActivity
 import com.example.demomodule.databinding.ActivityOrderHistorysBinding
-import com.example.demomodule.outletDetail.formatDate
-import com.example.demomodule.outletDetail.formatMonths
+import com.example.demomodule.outletsDetail.formatDate
+import com.example.demomodule.outletsDetail.formatMonths
 import com.rosia.domain.outletDetail.OrdersHistory
 import com.v2px.sujin.expandables1.OrdersHistoryChild
 import com.v2px.sujin.expandables1.OrdersHistoryParent

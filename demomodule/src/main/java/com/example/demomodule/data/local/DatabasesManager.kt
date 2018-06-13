@@ -6,8 +6,8 @@ import com.example.demomodule.data.local.dao.OrderItemDao
 import com.example.demomodule.data.local.dao.OutletDetailDao
 import javax.inject.Inject
 
-class DatabaseManager  @Inject constructor(context: Context) {
-    val instance = EvolveDatabase.getInstance(context)
+class DatabasesManager  @Inject constructor(context: Context) {
+    val instance = EvolveDatabases.getInstance(context)
     fun getOutletDao(): OutletDetailDao {
         return instance.outletDetailDao()
     }

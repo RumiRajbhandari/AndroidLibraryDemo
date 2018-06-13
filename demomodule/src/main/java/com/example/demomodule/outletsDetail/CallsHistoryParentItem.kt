@@ -6,7 +6,7 @@ import android.view.animation.Animation
 import android.view.animation.RotateAnimation
 import android.widget.ImageView
 import com.example.demomodule.R
-import com.example.demomodule.outletDetail.getTotalNoOfDays
+import com.example.demomodule.outletsDetail.getTotalNoOfDays
 import com.xwray.groupie.ExpandableGroup
 import com.xwray.groupie.ExpandableItem
 import com.xwray.groupie.kotlinandroidextensions.Item
@@ -14,7 +14,7 @@ import com.xwray.groupie.kotlinandroidextensions.ViewHolder
 import kotlinx.android.synthetic.main.item_call_history_header.view.*
 
 
-class CallHistoryParentItem (private val title:String) : Item(), ExpandableItem{
+class CallsHistoryParentItem (private val title:String) : Item(), ExpandableItem{
     private lateinit var expandableGroup:ExpandableGroup
     lateinit var imageView: ImageView
     @SuppressLint("SetTextI18n")

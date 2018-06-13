@@ -1,7 +1,7 @@
 package com.rosia.outletdetail
 
 import com.example.demomodule.data.UsersRepositoryImpl
-import com.example.demomodule.data.local.DatabaseManager
+import com.example.demomodule.data.local.DatabasesManager
 import com.example.demomodule.data.local.orderHistory.OrdersHistoryLocal
 import com.example.demomodule.data.local.orderHistory.OrdersHistoryLocalImpl
 import com.example.demomodule.data.local.outletDetail.OutletsDetailLocal
@@ -11,17 +11,17 @@ import com.example.demomodule.data.local.user.UsersLocalImpl
 import com.example.demomodule.data.mapper.OrdersHistoryMapper
 import com.example.demomodule.data.mapper.OutletsMapper
 import com.example.demomodule.data.remote.RetrofitApiServices
-import com.example.demomodule.data.repository.UsersRepository
-import com.example.demomodule.pref.SharedPreferenceManager
+import com.example.demomodule.data.repositories.UsersRepository
+import com.example.demomodule.pref.SharedPreferencesManager
 import com.rosia.data.OutletDetailsRepositoryImpl
 import com.rosia.data.source.remote.OrderHistorysRemote
 import com.rosia.data.source.remote.OrderHistorysRemoteImpl
 import com.rosia.data.source.remote.outletDetail.OutletsDetailRemote
 import com.rosia.data.source.remote.outletDetail.OutletsDetailRemoteImpl
 import com.rosia.data.source.repository.OutletDetailsRepository
-import com.rosia.di.qualifiers.Local
-import com.rosia.di.qualifiers.Remote
-import com.rosia.di.scopes.ActivityScoped
+import com.rosia.di.qualifiers.Locals
+import com.rosia.di.qualifiers.Remotes
+import com.rosia.di.scopes.ActivityScope
 import dagger.Module
 import dagger.Provides
 
@@ -30,40 +30,40 @@ import dagger.Provides
 class OutletDetailsActivityModule {
 
 
-    @ActivityScoped
+    @ActivityScope
     @Provides
     internal fun provideOutletDetailActivity(outletsDetailsActivity: OutletsDetailsActivity): OutletDetailsPageContract.View {
         return outletsDetailsActivity
     }
 
-    @ActivityScoped
+    @ActivityScope
     @Provides
     internal fun provideOutletDetailPresenter(outletView: OutletDetailsPageContract.View, repository: OutletDetailsRepositoryImpl, userRepository: UsersRepositoryImpl): OutletDetailsPageContract.Presenters {
         return OutletDetailsPagePresenters(outletView, repository,userRepository)
     }
 
-    @Remote
+    @Remotes
     @Provides
     internal fun provideRemoteDataSource(apiServices: RetrofitApiServices): OutletsDetailRemote {
         return OutletsDetailRemoteImpl(apiServices)
     }
 
-    @Local
+    @Locals
     @Provides
-    internal fun provideLocalDataSource(databaseManager: DatabaseManager): OutletsDetailLocal {
-        return OutletsDetailLocalImpl(databaseManager)
+    internal fun provideLocalDataSource(databasesManager: DatabasesManager): OutletsDetailLocal {
+        return OutletsDetailLocalImpl(databasesManager)
     }
 
-    @Remote
+    @Remotes
     @Provides
     internal fun provideOrderhistoryRemote(apiServices: RetrofitApiServices): OrderHistorysRemote {
         return OrderHistorysRemoteImpl(apiServices)
     }
 
-    @Local
+    @Locals
     @Provides
-    internal fun provideOrderHistoryLocalDataSource(databaseManager: DatabaseManager): OrdersHistoryLocal {
-        return OrdersHistoryLocalImpl(databaseManager)
+    internal fun provideOrderHistoryLocalDataSource(databasesManager: DatabasesManager): OrdersHistoryLocal {
+        return OrdersHistoryLocalImpl(databasesManager)
     }
 
     @Provides
@@ -71,10 +71,10 @@ class OutletDetailsActivityModule {
         return OutletDetailsRepositoryImpl(outletsDetailRemote, outletsDetailLocal,orderHistorysRemote,ordersHistoryLocal,outletsMapper,ordersHistoryMapper)
     }
 
-    @Local
+    @Locals
     @Provides
-    internal fun provideUserLocal(preferenceManager: SharedPreferenceManager): UsersLocal {
-        return UsersLocalImpl(preferenceManager)
+    internal fun provideUserLocal(preferencesManager: SharedPreferencesManager): UsersLocal {
+        return UsersLocalImpl(preferencesManager)
     }
 
     @Provides

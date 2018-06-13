@@ -7,8 +7,8 @@ import com.example.demomodule.data.mapper.OutletsMapper
 import com.rosia.data.source.remote.OrderHistorysRemote
 import com.rosia.data.source.remote.outletDetail.OutletsDetailRemote
 import com.rosia.data.source.repository.OutletDetailsRepository
-import com.rosia.di.qualifiers.Local
-import com.rosia.di.qualifiers.Remote
+import com.rosia.di.qualifiers.Locals
+import com.rosia.di.qualifiers.Remotes
 import com.rosia.domain.outletDetail.*
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -18,10 +18,10 @@ import javax.inject.Inject
 /**
  * Created by rumi on 5/17/18.
  */
-class OutletDetailsRepositoryImpl @Inject constructor(@Remote private var outletsDetailRemote: OutletsDetailRemote,
-                                                      @Local private var outletsDetailLocal: OutletsDetailLocal,
-                                                      @Remote private var orderHistorysRemote: OrderHistorysRemote,
-                                                      @Local private var ordersHistoryLocal: OrdersHistoryLocal,
+class OutletDetailsRepositoryImpl @Inject constructor(@Remotes private var outletsDetailRemote: OutletsDetailRemote,
+                                                      @Locals private var outletsDetailLocal: OutletsDetailLocal,
+                                                      @Remotes private var orderHistorysRemote: OrderHistorysRemote,
+                                                      @Locals private var ordersHistoryLocal: OrdersHistoryLocal,
                                                       private var outletsMapper: OutletsMapper,
                                                       private var ordersHistoryMapper: OrdersHistoryMapper) : OutletDetailsRepository {
     override fun getOutletDetail(id: Int): Observable<OutletsResponseModel> {

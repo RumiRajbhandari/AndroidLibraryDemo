@@ -4,8 +4,8 @@ import com.example.demomodule.data.local.orderHistory.OrdersHistoryLocal
 import com.example.demomodule.data.mapper.OrdersHistoryMapper
 import com.rosia.data.source.remote.OrderHistorysRemote
 import com.rosia.data.source.repository.OrderHistorysRepository
-import com.rosia.di.qualifiers.Local
-import com.rosia.di.qualifiers.Remote
+import com.rosia.di.qualifiers.Locals
+import com.rosia.di.qualifiers.Remotes
 import com.rosia.domain.outletDetail.OrdersHistory
 import com.rosia.domain.outletDetail.OrdersItem
 import io.reactivex.Observable
@@ -13,8 +13,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
-class OrderHistorysRepositoryImpl @Inject constructor(@Remote private var orderHistorysRemote: OrderHistorysRemote,
-                                                      @Local private var ordersHistoryLocal: OrdersHistoryLocal,
+class OrderHistorysRepositoryImpl @Inject constructor(@Remotes private var orderHistorysRemote: OrderHistorysRemote,
+                                                      @Locals private var ordersHistoryLocal: OrdersHistoryLocal,
                                                       private var ordersHistoryMapper: OrdersHistoryMapper) : OrderHistorysRepository {
 
     override fun getOrderHistory(outletId: Int): Observable<List<OrdersItem>> {

@@ -10,11 +10,11 @@ import com.example.demomodule.FabButtonClickListener
 import com.example.demomodule.R
 import com.example.demomodule.base.BasesActivity
 import com.example.demomodule.databinding.ActivityOutletDetailsBinding
-import com.example.demomodule.entity.User
+import com.example.demomodule.entity.Users
 import com.google.android.gms.maps.model.LatLng
 import com.rosia.domain.outletDetail.CallsHistory
 import com.rosia.domain.outletDetail.OutletsDetail
-import com.rosia.googlemap.MapFragment
+import com.rosia.googlemap.MapsFragment
 import com.rosia.orderhistory.OrdersHistoryActivity
 import com.xwray.groupie.ExpandableGroup
 import com.xwray.groupie.GroupAdapter
@@ -52,7 +52,7 @@ class OutletsDetailsActivity : BasesActivity(),OutletDetailsPageContract.View {
         fabVisibility = intent.getBooleanExtra("visibility",false)
         token = intent.getStringExtra("token")
 
-        outletDetailsPresenter.saveUserToken(User(token))
+        outletDetailsPresenter.saveUserToken(Users(token))
         outletDetailsPresenter.onGetOutletData(outletId)
         outletBinding.root.rv_outlet_detail.apply {
             layoutManager = LinearLayoutManager(this@OutletsDetailsActivity)
@@ -73,9 +73,9 @@ class OutletsDetailsActivity : BasesActivity(),OutletDetailsPageContract.View {
 
 
     override fun getCallHistorySuccess(callsHistoryList: List<CallsHistory>) {
-        val list: List<CallHistoryChildItem> = callsHistoryList.map { CallHistoryChildItem(it) }
+        val list: List<CallsHistoryChildItem> = callsHistoryList.map { CallsHistoryChildItem(it) }
         if (!list.isEmpty())
-            ExpandableGroup(CallHistoryParentItem(""), false).apply {
+            ExpandableGroup(CallsHistoryParentItem(""), false).apply {
                 add(Section(list))
                 groupAdapter.add(this)
             }
@@ -91,7 +91,7 @@ class OutletsDetailsActivity : BasesActivity(),OutletDetailsPageContract.View {
         outletLocation = LatLng(outletsDetail.latitude!!.toDouble(), outletsDetail.longitude!!.toDouble())
         supportFragmentManager
                 .beginTransaction()
-                .add(outletBinding.root.fragment.id, MapFragment.newInstance(outletLocation)).commit()
+                .add(outletBinding.root.fragment.id, MapsFragment.newInstance(outletLocation)).commit()
     }
 
 

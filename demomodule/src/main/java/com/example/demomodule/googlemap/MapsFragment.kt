@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.fragment_map.view.*
  * A simple [Fragment] subclass.
  *
  */
-class MapFragment : Fragment(), OnMapReadyCallback {
+class MapsFragment : Fragment(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap?) {
         val outletLocation = arguments?.getParcelable<LatLng>(_LATLNG)
@@ -59,8 +59,8 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
     companion object {
         private const val _LATLNG ="latlng"
-        fun newInstance(latLng: LatLng) : MapFragment{
-            val mapFragment = MapFragment()
+        fun newInstance(latLng: LatLng) : MapsFragment{
+            val mapFragment = MapsFragment()
             val args = Bundle()
             args.putParcelable(_LATLNG, latLng)
             mapFragment.arguments = args

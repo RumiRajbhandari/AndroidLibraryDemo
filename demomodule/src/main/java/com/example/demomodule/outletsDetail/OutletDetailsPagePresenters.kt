@@ -1,10 +1,10 @@
 package com.rosia.outletdetail
 
-import com.example.demomodule.data.repository.UsersRepository
-import com.example.demomodule.entity.User
+import com.example.demomodule.data.repositories.UsersRepository
+import com.example.demomodule.entity.Users
 import com.rosia.data.source.repository.OutletDetailsRepository
 import com.rosia.domain.outletDetail.*
-import com.rosia.exceptions.ErrorMessageFactory
+import com.rosia.exceptions.ErrorsMessageFactory
 import io.reactivex.Observable
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.functions.Function3
@@ -22,8 +22,8 @@ class OutletDetailsPagePresenters(private var outletDetailsView: OutletDetailsPa
         disposable.dispose()
     }
 
-    override fun saveUserToken(user: User) {
-        usersRepository.saveUser(user)
+    override fun saveUserToken(users: Users) {
+        usersRepository.saveUser(users)
     }
 
     override fun onGetOutletData(id: Int) {
@@ -44,7 +44,7 @@ class OutletDetailsPagePresenters(private var outletDetailsView: OutletDetailsPa
 
                 },
                 {
-                    outletDetailsView.showError(ErrorMessageFactory.createMessage(it))
+                    outletDetailsView.showError(ErrorsMessageFactory.createMessage(it))
                 }, {
             onGetOutletDetail(id)
             onGetCallHistory(id)
@@ -58,7 +58,7 @@ class OutletDetailsPagePresenters(private var outletDetailsView: OutletDetailsPa
                 {
                     outletDetailsView.getOutletDetailSuccess(it)
                 }, {
-            outletDetailsView.showError(ErrorMessageFactory.createMessage(it))
+            outletDetailsView.showError(ErrorsMessageFactory.createMessage(it))
         }))
     }
 
@@ -67,7 +67,7 @@ class OutletDetailsPagePresenters(private var outletDetailsView: OutletDetailsPa
                 {
                     outletDetailsView.getCallHistorySuccess(it)
                 }, {
-            outletDetailsView.showError(ErrorMessageFactory.createMessage(it))
+            outletDetailsView.showError(ErrorsMessageFactory.createMessage(it))
         }))
     }
 

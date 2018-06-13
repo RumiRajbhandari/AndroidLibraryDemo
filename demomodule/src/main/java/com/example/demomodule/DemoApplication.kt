@@ -1,6 +1,6 @@
 package com.example.demomodule
 
-import com.example.demomodule.di.DaggerAppComponent
+import com.example.demomodule.di.DaggerAppsComponent
 import com.facebook.stetho.Stetho
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
@@ -16,7 +16,7 @@ class DemoApplication: DaggerApplication() {
     }
 
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
-        return DaggerAppComponent.builder().application(this).build()
+        return DaggerAppsComponent.builder().application(this).build()
 
     }
 

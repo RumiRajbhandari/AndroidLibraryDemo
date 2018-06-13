@@ -1,8 +1,8 @@
 package com.example.demomodule.data.remote
 
 import android.content.Context
-import com.example.demomodule.outletDetail.isNetworkAvailable
-import com.example.demomodule.pref.SharedPreferenceManager
+import com.example.demomodule.outletsDetail.isNetworkAvailable
+import com.example.demomodule.pref.SharedPreferencesManager
 import com.rosia.exceptions.FailedResponseException
 import com.rosia.exceptions.NetworkNotAvailableException
 import okhttp3.Interceptor
@@ -13,16 +13,16 @@ import javax.inject.Singleton
 
 
 @Singleton
-class ApiInterceptors @Inject constructor(private val context: Context, private val sharedPreferenceManager: SharedPreferenceManager) : Interceptor {
+class ApiInterceptors @Inject constructor(private val context: Context, private val sharedPreferencesManager: SharedPreferencesManager) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         if (!isNetworkAvailable(context)) {
             throw NetworkNotAvailableException()
         }
 
         val requestBuilder = chain.request().newBuilder()
-        if (!sharedPreferenceManager.userAccessToken.isEmpty()) {
-            println("access token is "+sharedPreferenceManager.userAccessToken)
-            requestBuilder.addHeader("Authorization", "Bearer ${sharedPreferenceManager.userAccessToken}")
+        if (!sharedPreferencesManager.userAccessToken.isEmpty()) {
+            println("access token is "+sharedPreferencesManager.userAccessToken)
+            requestBuilder.addHeader("Authorization", "Bearer ${sharedPreferencesManager.userAccessToken}")
         }
 
         var response = chain.proceed(requestBuilder.build())

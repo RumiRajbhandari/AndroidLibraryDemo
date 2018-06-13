@@ -24,15 +24,15 @@ import javax.inject.Singleton
  * // and location of subcomponents.
  */
 @Singleton
-@Component(modules = [(ApiModule::class),
+@Component(modules = [(ApisModule::class),
     (AndroidSupportInjectionModule::class),
-    (ApplicationModule::class),
-    (ActivityBindingModule::class)])
-interface AppComponent : AndroidInjector<DemoApplication>{
+    (AppModule::class),
+    (ActivitiesBindingModule::class)])
+interface AppsComponent : AndroidInjector<DemoApplication>{
     @Component.Builder
     interface Builder{
         @BindsInstance
-        fun application(application: Application) : AppComponent.Builder
-        fun build() : AppComponent
+        fun application(application: Application) : AppsComponent.Builder
+        fun build() : AppsComponent
     }
 }

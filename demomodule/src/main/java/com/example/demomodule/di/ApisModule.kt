@@ -3,7 +3,7 @@ package com.example.demomodule.di
 import android.content.Context
 import com.example.demomodule.data.remote.ApiInterceptors
 import com.example.demomodule.data.remote.RetrofitApiServices
-import com.example.demomodule.pref.SharedPreferenceManager
+import com.example.demomodule.pref.SharedPreferencesManager
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.google.gson.Gson
 import dagger.Module
@@ -18,7 +18,7 @@ import javax.inject.Singleton
 
 
 @Module
-open class ApiModule {
+open class ApisModule {
 
 
     @Singleton
@@ -29,8 +29,8 @@ open class ApiModule {
 
     @Singleton
     @Provides
-    internal fun provideSharePreference(context: Context): SharedPreferenceManager {
-        return SharedPreferenceManager(context)
+    internal fun provideSharePreference(context: Context): SharedPreferencesManager {
+        return SharedPreferencesManager(context)
     }
 
     @Provides

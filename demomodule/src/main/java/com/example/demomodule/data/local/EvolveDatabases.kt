@@ -14,19 +14,19 @@ import com.example.demomodule.data.local.entity.OutletDetailEntity
 @Database(entities = arrayOf(OutletDetailEntity::class,
         CallHistoryEntity::class,
         OrderItemEntity::class),version = 1)
-abstract class EvolveDatabase: RoomDatabase() {
+abstract class EvolveDatabases: RoomDatabase() {
 
     companion object {
-        var instance:EvolveDatabase?=null
-        fun getInstance(context: Context):EvolveDatabase
+        var instance:EvolveDatabases?=null
+        fun getInstance(context: Context):EvolveDatabases
         {
             if (instance==null){
                 instance= createInstance(context)
             }
-            return instance as EvolveDatabase
+            return instance as EvolveDatabases
         }
-        private fun createInstance(context: Context): EvolveDatabase {
-            return Room.databaseBuilder(context, EvolveDatabase::class.java, "evolve.db")
+        private fun createInstance(context: Context): EvolveDatabases {
+            return Room.databaseBuilder(context, EvolveDatabases::class.java, "evolve.db")
                     .allowMainThreadQueries()
                     .build()
         }

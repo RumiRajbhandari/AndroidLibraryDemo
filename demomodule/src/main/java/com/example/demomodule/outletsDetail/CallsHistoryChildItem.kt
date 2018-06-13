@@ -1,7 +1,7 @@
 package com.rosia.outletdetail
 
 import com.example.demomodule.R
-import com.example.demomodule.outletDetail.formatMilliSecondToMonthAndDay
+import com.example.demomodule.outletsDetail.formatMilliSecondToMonthAndDay
 import com.rosia.domain.outletDetail.CallsHistory
 import com.xwray.groupie.kotlinandroidextensions.Item
 import com.xwray.groupie.kotlinandroidextensions.ViewHolder
@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.item_call_history_child.view.*
 import java.text.DecimalFormat
 
 
-class CallHistoryChildItem(private val callsHistory: CallsHistory) : Item(){
+class CallsHistoryChildItem(private val callsHistory: CallsHistory) : Item(){
     override fun bind(viewHolder: ViewHolder, position: Int) {
         val cHistory = DecimalFormat("#.##").format(callsHistory.amount)
         viewHolder.itemView.tv_date.text = formatMilliSecondToMonthAndDay(callsHistory.date)

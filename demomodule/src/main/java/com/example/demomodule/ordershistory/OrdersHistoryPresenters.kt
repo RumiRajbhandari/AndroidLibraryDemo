@@ -1,10 +1,10 @@
 package com.rosia.orderhistory
 
-import com.example.demomodule.outletDetail.formatMilliSecondToMonth
+import com.example.demomodule.outletsDetail.formatMilliSecondToMonth
 import com.rosia.data.OrderHistorysRepositoryImpl
 import com.rosia.domain.outletDetail.OrdersHistory
 import com.rosia.domain.outletDetail.OrdersItem
-import com.rosia.exceptions.ErrorMessageFactory
+import com.rosia.exceptions.ErrorsMessageFactory
 import io.reactivex.disposables.Disposable
 import javax.inject.Inject
 
@@ -28,7 +28,7 @@ class OrdersHistoryPresenters @Inject constructor(var view: OrdersHistoryContrac
                     view.showOrderHistorySuccess(groupOrderHistoryByMonth(it))
                 }, {
                     println("on error order history"+it.message)
-                    view.showError(ErrorMessageFactory.createMessage(it))
+                    view.showError(ErrorsMessageFactory.createMessage(it))
                 })
     }
 
