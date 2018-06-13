@@ -9,7 +9,7 @@ import android.view.View
 import com.example.demomodule.FabButtonClickListener
 import com.example.demomodule.R
 import com.example.demomodule.base.BaseActivity
-import com.example.demomodule.databinding.ActivityOutletDetailBinding
+import com.example.demomodule.databinding.ActivityOutletDetailsBinding
 import com.example.demomodule.entity.User
 import com.google.android.gms.maps.model.LatLng
 import com.rosia.domain.outletDetail.CallHistory
@@ -20,8 +20,8 @@ import com.xwray.groupie.ExpandableGroup
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Section
 import com.xwray.groupie.ViewHolder
-import kotlinx.android.synthetic.main.activity_outlet_detail.*
-import kotlinx.android.synthetic.main.content_outlet_detail.view.*
+import kotlinx.android.synthetic.main.activity_outlet_details.*
+import kotlinx.android.synthetic.main.content_outlet_details.view.*
 import javax.inject.Inject
 
 
@@ -30,7 +30,7 @@ class OutletDetailActivity : BaseActivity(),OutletDetailPageContract.View {
     @Inject
     lateinit var outletDetailPresenter: OutletDetailPageContract.Presenter
 
-    private lateinit var outletBinding: ActivityOutletDetailBinding
+    private lateinit var outletBinding: ActivityOutletDetailsBinding
     private val groupAdapter = GroupAdapter<ViewHolder>()
     private var outletId=0
     private var fabVisibility=false
@@ -39,7 +39,7 @@ class OutletDetailActivity : BaseActivity(),OutletDetailPageContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        outletBinding = DataBindingUtil.setContentView(this, R.layout.activity_outlet_detail)
+        outletBinding = DataBindingUtil.setContentView(this, R.layout.activity_outlet_details)
         setSupportActionBar(toolbar)
         outletBinding.toolbar.setNavigationOnClickListener({ onBackPressed() })
 

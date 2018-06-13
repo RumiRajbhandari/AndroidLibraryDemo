@@ -1,7 +1,6 @@
 package com.rosia.orderhistory
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
@@ -9,7 +8,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.MenuItem
 import com.example.demomodule.R
 import com.example.demomodule.base.BaseActivity
-import com.example.demomodule.databinding.ActivityOrderHistoryBinding
+import com.example.demomodule.databinding.ActivityOrderHistorysBinding
 import com.example.demomodule.outletDetail.formatDate
 import com.example.demomodule.outletDetail.formatMonths
 import com.rosia.domain.outletDetail.OrderHistory
@@ -19,7 +18,6 @@ import com.xwray.groupie.ExpandableGroup
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Section
 import com.xwray.groupie.kotlinandroidextensions.ViewHolder
-import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
 
@@ -28,7 +26,7 @@ class OrderHistoryActivity : BaseActivity(), OrderHistoryContract.View {
     @Inject
     lateinit var presenter: OrderHistoryContract.Presenter
     private lateinit var groupAdapter: GroupAdapter<ViewHolder>
-    private lateinit var binding: ActivityOrderHistoryBinding
+    private lateinit var binding: ActivityOrderHistorysBinding
 
     companion object {
         private const val KEY_OUTLET_ID = "_outletID"
@@ -41,7 +39,7 @@ class OrderHistoryActivity : BaseActivity(), OrderHistoryContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        this.binding = DataBindingUtil.setContentView(this@OrderHistoryActivity, R.layout.activity_order_history)
+        this.binding = DataBindingUtil.setContentView(this@OrderHistoryActivity, R.layout.activity_order_historys)
         binding.toolbar.title = getString(R.string.order_history)
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
