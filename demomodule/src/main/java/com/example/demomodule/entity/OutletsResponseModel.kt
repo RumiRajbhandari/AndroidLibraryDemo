@@ -6,6 +6,6 @@ import com.google.gson.annotations.SerializedName
 /**
  * Created by rumi on 5/27/18.
  */
-class OrderHistoryResponseModel (
-        @SerializedName("list") @Expose val orderHistoryList:List<OrderItem>
+class OutletsResponseModel(
+        @SerializedName("outlet") @Expose val outletsDetail: OutletsDetail
 )

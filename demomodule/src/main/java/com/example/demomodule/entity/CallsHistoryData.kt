@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 /**
  * Created by rumi on 5/20/18.
  */
-class CallHistoryData (
+class CallsHistoryData (
 //        @SerializedName("lastCalled") @Expose val lastCalled: String,
-        @SerializedName("callHistoryList") @Expose val callHistoryList: List<CallHistory>
+        @SerializedName("callsHistoryList") @Expose val callsHistoryList: List<CallsHistory>
 )

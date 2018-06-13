@@ -2,12 +2,12 @@ package com.example.demomodule.data.mapper
 
 import com.example.demomodule.data.local.entity.CallHistoryEntity
 import com.example.demomodule.data.local.entity.OutletDetailEntity
-import com.rosia.domain.outletDetail.CallHistory
-import com.rosia.domain.outletDetail.OutletDetail
+import com.rosia.domain.outletDetail.CallsHistory
+import com.rosia.domain.outletDetail.OutletsDetail
 import javax.inject.Inject
 
-class OutletMapper @Inject constructor() {
-    fun mapToEntity(it: OutletDetail):OutletDetailEntity{
+class OutletsMapper @Inject constructor() {
+    fun mapToEntity(it: OutletsDetail):OutletDetailEntity{
         return OutletDetailEntity(it.id,
                 it.name,
                 it.rmapRoId,
@@ -19,8 +19,8 @@ class OutletMapper @Inject constructor() {
                 it.routeId)
     }
 
-    fun mapEntityToDomain(it:OutletDetailEntity):OutletDetail{
-        return OutletDetail(it.id,
+    fun mapEntityToDomain(it:OutletDetailEntity):OutletsDetail{
+        return OutletsDetail(it.id,
                 it.name,
                 it.rmapRoId,
                 it.ownerName,
@@ -31,8 +31,8 @@ class OutletMapper @Inject constructor() {
                 it.routeId)
     }
 
-    fun mapCallHistoryToEntity(callHistoryList:List<CallHistory>):List<CallHistoryEntity>{
-        return callHistoryList.map {  CallHistoryEntity(it.id,
+    fun mapCallHistoryToEntity(callsHistoryList:List<CallsHistory>):List<CallHistoryEntity>{
+        return callsHistoryList.map {  CallHistoryEntity(it.id,
                 it.outletId,
                 it.amount,
                 it.status,
@@ -40,8 +40,8 @@ class OutletMapper @Inject constructor() {
         }
     }
 
-    fun mapCallHistoryEntityToDomain(callHistoryEntityList:List<CallHistoryEntity>):List<CallHistory>{
-        return callHistoryEntityList.map { CallHistory(it.id,
+    fun mapCallHistoryEntityToDomain(callHistoryEntityList:List<CallHistoryEntity>):List<CallsHistory>{
+        return callHistoryEntityList.map { CallsHistory(it.id,
                 it.outletId,
                 it.amount,
                 it.status,

@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 /**
  * Created by nabin on 4/23/18.
  */
-class OrderItem(
+class OrdersItem(
         @SerializedName("salesOrderId")
         val id: Int,
 

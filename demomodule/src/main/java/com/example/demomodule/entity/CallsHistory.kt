@@ -3,7 +3,7 @@ package com.rosia.domain.outletDetail
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-data class CallHistory (
+data class CallsHistory (
         @SerializedName("id")
         @Expose val id: Int,
 

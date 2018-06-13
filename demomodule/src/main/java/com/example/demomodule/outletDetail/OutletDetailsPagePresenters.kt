@@ -33,14 +33,14 @@ class OutletDetailsPagePresenters(private var outletDetailsView: OutletDetailsPa
                 repository.getOutletDetail(id),
                 repository.getCallHistory(id),
                 repository.getOrderHistory(id),
-                Function3 { outletResponseModel: OutletResponseModel,
-                            callHistoryResponseModel: CallHistoryResponseModel,
-                            orderHistoryResponseModel: OrderHistoryResponseModel ->
-                    OutletEntity(outletResponseModel.outletDetail, CallHistoryData(callHistoryResponseModel.calls))
+                Function3 { outletsResponseModel: OutletsResponseModel,
+                            callsHistoryResponseModel: CallsHistoryResponseModel,
+                            ordersHistoryResponseModel: OrdersHistoryResponseModel ->
+                    OutletsEntity(outletsResponseModel.outletsDetail, CallsHistoryData(callsHistoryResponseModel.calls))
                 }
         ).subscribe(
                 {
-                    println("on next ${it.callHistoryData} ${it.outletDetail}")
+                    println("on next ${it.callsHistoryData} ${it.outletsDetail}")
 
                 },
                 {

@@ -2,22 +2,22 @@ package com.rosia.outletdetail
 
 import com.example.demomodule.data.UsersRepositoryImpl
 import com.example.demomodule.data.local.DatabaseManager
-import com.example.demomodule.data.local.orderHistory.OrderHistoryLocal
-import com.example.demomodule.data.local.orderHistory.OrderHistoryLocalImpl
-import com.example.demomodule.data.local.outletDetail.OutletDetailLocal
-import com.example.demomodule.data.local.outletDetail.OutletDetailLocalImpl
-import com.example.demomodule.data.local.user.UserLocal
-import com.example.demomodule.data.local.user.UserLocalImpl
-import com.example.demomodule.data.mapper.OrderHistoryMapper
-import com.example.demomodule.data.mapper.OutletMapper
+import com.example.demomodule.data.local.orderHistory.OrdersHistoryLocal
+import com.example.demomodule.data.local.orderHistory.OrdersHistoryLocalImpl
+import com.example.demomodule.data.local.outletDetail.OutletsDetailLocal
+import com.example.demomodule.data.local.outletDetail.OutletsDetailLocalImpl
+import com.example.demomodule.data.local.user.UsersLocal
+import com.example.demomodule.data.local.user.UsersLocalImpl
+import com.example.demomodule.data.mapper.OrdersHistoryMapper
+import com.example.demomodule.data.mapper.OutletsMapper
 import com.example.demomodule.data.remote.RetrofitApiServices
 import com.example.demomodule.data.repository.UsersRepository
 import com.example.demomodule.pref.SharedPreferenceManager
 import com.rosia.data.OutletDetailsRepositoryImpl
 import com.rosia.data.source.remote.OrderHistorysRemote
 import com.rosia.data.source.remote.OrderHistorysRemoteImpl
-import com.rosia.data.source.remote.outletDetail.OutletDetailRemote
-import com.rosia.data.source.remote.outletDetail.OutletDetailRemoteImpl
+import com.rosia.data.source.remote.outletDetail.OutletsDetailRemote
+import com.rosia.data.source.remote.outletDetail.OutletsDetailRemoteImpl
 import com.rosia.data.source.repository.OutletDetailsRepository
 import com.rosia.di.qualifiers.Local
 import com.rosia.di.qualifiers.Remote
@@ -44,14 +44,14 @@ class OutletDetailsActivityModule {
 
     @Remote
     @Provides
-    internal fun provideRemoteDataSource(apiServices: RetrofitApiServices): OutletDetailRemote {
-        return OutletDetailRemoteImpl(apiServices)
+    internal fun provideRemoteDataSource(apiServices: RetrofitApiServices): OutletsDetailRemote {
+        return OutletsDetailRemoteImpl(apiServices)
     }
 
     @Local
     @Provides
-    internal fun provideLocalDataSource(databaseManager: DatabaseManager): OutletDetailLocal {
-        return OutletDetailLocalImpl(databaseManager)
+    internal fun provideLocalDataSource(databaseManager: DatabaseManager): OutletsDetailLocal {
+        return OutletsDetailLocalImpl(databaseManager)
     }
 
     @Remote
@@ -62,24 +62,24 @@ class OutletDetailsActivityModule {
 
     @Local
     @Provides
-    internal fun provideOrderHistoryLocalDataSource(databaseManager: DatabaseManager): OrderHistoryLocal {
-        return OrderHistoryLocalImpl(databaseManager)
+    internal fun provideOrderHistoryLocalDataSource(databaseManager: DatabaseManager): OrdersHistoryLocal {
+        return OrdersHistoryLocalImpl(databaseManager)
     }
 
     @Provides
-    internal fun provideOutletDetailRepository(outletDetailRemote: OutletDetailRemote, outletDetailLocal: OutletDetailLocal, orderHistorysRemote: OrderHistorysRemote, orderHistoryLocal: OrderHistoryLocal, outletMapper: OutletMapper, orderHistoryMapper: OrderHistoryMapper): OutletDetailsRepository {
-        return OutletDetailsRepositoryImpl(outletDetailRemote, outletDetailLocal,orderHistorysRemote,orderHistoryLocal,outletMapper,orderHistoryMapper)
+    internal fun provideOutletDetailRepository(outletsDetailRemote: OutletsDetailRemote, outletsDetailLocal: OutletsDetailLocal, orderHistorysRemote: OrderHistorysRemote, ordersHistoryLocal: OrdersHistoryLocal, outletsMapper: OutletsMapper, ordersHistoryMapper: OrdersHistoryMapper): OutletDetailsRepository {
+        return OutletDetailsRepositoryImpl(outletsDetailRemote, outletsDetailLocal,orderHistorysRemote,ordersHistoryLocal,outletsMapper,ordersHistoryMapper)
     }
 
     @Local
     @Provides
-    internal fun provideUserLocal(preferenceManager: SharedPreferenceManager): UserLocal {
-        return UserLocalImpl(preferenceManager)
+    internal fun provideUserLocal(preferenceManager: SharedPreferenceManager): UsersLocal {
+        return UsersLocalImpl(preferenceManager)
     }
 
     @Provides
-    internal fun provideUserRepository(userLocal: UserLocal):UsersRepository{
-        return UsersRepositoryImpl(userLocal)
+    internal fun provideUserRepository(usersLocal: UsersLocal):UsersRepository{
+        return UsersRepositoryImpl(usersLocal)
     }
 
 }

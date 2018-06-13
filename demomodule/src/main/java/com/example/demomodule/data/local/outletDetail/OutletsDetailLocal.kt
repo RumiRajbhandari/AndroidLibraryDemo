@@ -6,7 +6,7 @@ import com.example.demomodule.data.local.entity.OutletDetailEntity
 import io.reactivex.Completable
 import io.reactivex.Observable
 
-interface OutletDetailLocal {
+interface OutletsDetailLocal {
     fun getOutletDetail(id :Int): Observable<OutletDetailEntity>
     fun getCallHistoryList(id :Int): Observable<List<CallHistoryEntity>>
     fun insertOutletDetail(outletDetailList: OutletDetailEntity):Completable

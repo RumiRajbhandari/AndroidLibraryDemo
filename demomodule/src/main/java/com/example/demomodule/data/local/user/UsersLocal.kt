@@ -5,7 +5,7 @@ import com.example.demomodule.entity.User
 /**
  * Created by rumi on 6/13/18.
  */
-interface UserLocal {
+interface UsersLocal {
     fun saveUser(user: User)
     fun getUserDetail(): User
     fun hasValidUser(): Boolean

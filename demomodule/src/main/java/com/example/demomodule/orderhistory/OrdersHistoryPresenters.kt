@@ -2,8 +2,8 @@ package com.rosia.orderhistory
 
 import com.example.demomodule.outletDetail.formatMilliSecondToMonth
 import com.rosia.data.OrderHistorysRepositoryImpl
-import com.rosia.domain.outletDetail.OrderHistory
-import com.rosia.domain.outletDetail.OrderItem
+import com.rosia.domain.outletDetail.OrdersHistory
+import com.rosia.domain.outletDetail.OrdersItem
 import com.rosia.exceptions.ErrorMessageFactory
 import io.reactivex.disposables.Disposable
 import javax.inject.Inject
@@ -32,12 +32,12 @@ class OrdersHistoryPresenters @Inject constructor(var view: OrdersHistoryContrac
                 })
     }
 
-    private fun groupOrderHistoryByMonth(orderItemList: List<OrderItem>):List<OrderHistory>{
-        val group=orderItemList.groupBy { orderItemList-> formatMilliSecondToMonth(orderItemList.date) }
+    private fun groupOrderHistoryByMonth(ordersItemList: List<OrdersItem>):List<OrdersHistory>{
+        val group=ordersItemList.groupBy { orderItemList-> formatMilliSecondToMonth(orderItemList.date) }
         println("group is $group")
-        val orderHistoryList= mutableListOf<OrderHistory>()
+        val orderHistoryList= mutableListOf<OrdersHistory>()
         group.forEach{
-            var orderHistory=OrderHistory(it.key, it.value)
+            var orderHistory=OrdersHistory(it.key, it.value)
             orderHistoryList.add(orderHistory)
         }
         return orderHistoryList

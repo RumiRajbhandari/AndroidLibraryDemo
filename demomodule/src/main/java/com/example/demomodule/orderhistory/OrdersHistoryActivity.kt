@@ -11,7 +11,7 @@ import com.example.demomodule.base.BasesActivity
 import com.example.demomodule.databinding.ActivityOrderHistorysBinding
 import com.example.demomodule.outletDetail.formatDate
 import com.example.demomodule.outletDetail.formatMonths
-import com.rosia.domain.outletDetail.OrderHistory
+import com.rosia.domain.outletDetail.OrdersHistory
 import com.v2px.sujin.expandables1.OrdersHistoryChild
 import com.v2px.sujin.expandables1.OrdersHistoryParent
 import com.xwray.groupie.ExpandableGroup
@@ -66,11 +66,11 @@ class OrdersHistoryActivity : BasesActivity(), OrdersHistoryContract.View {
 
     }
 
-    override fun showOrderHistorySuccess(orderHistoryItems: List<OrderHistory>) {
+    override fun showOrderHistorySuccess(ordersHistoryItems: List<OrdersHistory>) {
         super.showData(this.binding)
         val rvBaseRecyclerView = this.binding.rvBaseOrderHistory
         groupAdapter = GroupAdapter()
-        val groups = orderHistoryItems.groupBy { item ->
+        val groups = ordersHistoryItems.groupBy { item ->
             formatMonths(item.date)
         }
 

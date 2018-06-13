@@ -2,7 +2,7 @@ package com.rosia.domain.outletDetail
 
 import com.google.gson.annotations.SerializedName
 
-data class OrderHistory(
+data class OrdersHistory(
         @SerializedName("date") val date: String,
-        @SerializedName("orders") val orders: List<OrderItem>?
+        @SerializedName("orders") val orders: List<OrdersItem>?
 )

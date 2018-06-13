@@ -7,7 +7,7 @@ import javax.inject.Inject
 /**
  * Created by rumi on 6/13/18.
  */
-class UserLocalImpl @Inject constructor(private var preferences: SharedPreferenceManager):UserLocal {
+class UsersLocalImpl @Inject constructor(private var preferences: SharedPreferenceManager):UsersLocal {
     override fun saveUser(user: User) {
         preferences.userAccessToken=user.token
     }

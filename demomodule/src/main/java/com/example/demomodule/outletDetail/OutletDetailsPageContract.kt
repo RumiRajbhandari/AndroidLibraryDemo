@@ -3,13 +3,13 @@ package com.rosia.outletdetail
 import com.example.demomodule.entity.User
 import com.rosia.base.BasesPresenter
 import com.rosia.base.BasesView
-import com.rosia.domain.outletDetail.CallHistory
-import com.rosia.domain.outletDetail.OutletDetail
+import com.rosia.domain.outletDetail.CallsHistory
+import com.rosia.domain.outletDetail.OutletsDetail
 
 interface OutletDetailsPageContract {
     interface View: BasesView<Presenters> {
-        fun getOutletDetailSuccess(outletDetail: OutletDetail)
-        fun getCallHistorySuccess(callHistoryList: List<CallHistory>)
+        fun getOutletDetailSuccess(outletsDetail: OutletsDetail)
+        fun getCallHistorySuccess(callsHistoryList: List<CallsHistory>)
         fun showError(errorMessage: String)
         fun showLoading(loading: String="Loading")
     }

@@ -12,8 +12,8 @@ import com.example.demomodule.base.BasesActivity
 import com.example.demomodule.databinding.ActivityOutletDetailsBinding
 import com.example.demomodule.entity.User
 import com.google.android.gms.maps.model.LatLng
-import com.rosia.domain.outletDetail.CallHistory
-import com.rosia.domain.outletDetail.OutletDetail
+import com.rosia.domain.outletDetail.CallsHistory
+import com.rosia.domain.outletDetail.OutletsDetail
 import com.rosia.googlemap.MapFragment
 import com.rosia.orderhistory.OrdersHistoryActivity
 import com.xwray.groupie.ExpandableGroup
@@ -72,8 +72,8 @@ class OutletsDetailsActivity : BasesActivity(),OutletDetailsPageContract.View {
     }
 
 
-    override fun getCallHistorySuccess(callHistoryList: List<CallHistory>) {
-        val list: List<CallHistoryChildItem> = callHistoryList.map { CallHistoryChildItem(it) }
+    override fun getCallHistorySuccess(callsHistoryList: List<CallsHistory>) {
+        val list: List<CallHistoryChildItem> = callsHistoryList.map { CallHistoryChildItem(it) }
         if (!list.isEmpty())
             ExpandableGroup(CallHistoryParentItem(""), false).apply {
                 add(Section(list))
@@ -82,13 +82,13 @@ class OutletsDetailsActivity : BasesActivity(),OutletDetailsPageContract.View {
     }
 
 
-    override fun getOutletDetailSuccess(outletDetail: OutletDetail) {
-        outletBinding.outlet = outletDetail
+    override fun getOutletDetailSuccess(outletsDetail: OutletsDetail) {
+        outletBinding.outlet = outletsDetail
         outletId = this.outletId
         outletBinding.root.tv_order_history.setOnClickListener {
             OrdersHistoryActivity.start(this, outletId)
         }
-        outletLocation = LatLng(outletDetail.latitude!!.toDouble(), outletDetail.longitude!!.toDouble())
+        outletLocation = LatLng(outletsDetail.latitude!!.toDouble(), outletsDetail.longitude!!.toDouble())
         supportFragmentManager
                 .beginTransaction()
                 .add(outletBinding.root.fragment.id, MapFragment.newInstance(outletLocation)).commit()

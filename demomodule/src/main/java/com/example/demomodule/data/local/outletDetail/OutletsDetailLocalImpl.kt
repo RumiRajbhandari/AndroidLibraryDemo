@@ -2,13 +2,12 @@ package com.example.demomodule.data.local.outletDetail
 
 import com.example.demomodule.data.local.DatabaseManager
 import com.example.demomodule.data.local.entity.CallHistoryEntity
-import com.example.demomodule.data.local.entity.OrderItemEntity
 import com.example.demomodule.data.local.entity.OutletDetailEntity
 import io.reactivex.Completable
 import io.reactivex.Observable
 import javax.inject.Inject
 
-class OutletDetailLocalImpl @Inject constructor(private val databaseManager: DatabaseManager):OutletDetailLocal {
+class OutletsDetailLocalImpl @Inject constructor(private val databaseManager: DatabaseManager):OutletsDetailLocal {
     override fun getOutletDetail(id: Int):Observable<OutletDetailEntity> {
         return Observable.fromCallable{
             databaseManager.getOutletDao().get(id)

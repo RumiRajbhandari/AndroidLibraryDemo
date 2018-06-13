@@ -1,9 +1,9 @@
 package com.rosia.orderhistory
 
 import com.example.demomodule.data.local.DatabaseManager
-import com.example.demomodule.data.local.orderHistory.OrderHistoryLocal
-import com.example.demomodule.data.local.orderHistory.OrderHistoryLocalImpl
-import com.example.demomodule.data.mapper.OrderHistoryMapper
+import com.example.demomodule.data.local.orderHistory.OrdersHistoryLocal
+import com.example.demomodule.data.local.orderHistory.OrdersHistoryLocalImpl
+import com.example.demomodule.data.mapper.OrdersHistoryMapper
 import com.example.demomodule.data.remote.RetrofitApiServices
 import com.rosia.data.OrderHistorysRepositoryImpl
 import com.rosia.data.source.remote.OrderHistorysRemote
@@ -39,12 +39,12 @@ class OrdersHistoryActivityModule {
 
     @Local
     @Provides
-    fun provideOrderHistoryLocalDataSource(databaseManager: DatabaseManager):OrderHistoryLocal{
-        return OrderHistoryLocalImpl(databaseManager)
+    fun provideOrderHistoryLocalDataSource(databaseManager: DatabaseManager):OrdersHistoryLocal{
+        return OrdersHistoryLocalImpl(databaseManager)
     }
 
     @Provides
-    internal fun provideOrderHistoryRepository(orderHistorysRemote: OrderHistorysRemote, orderHistoryLocal: OrderHistoryLocal, orderHistoryMapper: OrderHistoryMapper): OrderHistorysRepository {
-        return OrderHistorysRepositoryImpl(orderHistorysRemote, orderHistoryLocal,orderHistoryMapper)
+    internal fun provideOrderHistoryRepository(orderHistorysRemote: OrderHistorysRemote, ordersHistoryLocal: OrdersHistoryLocal, ordersHistoryMapper: OrdersHistoryMapper): OrderHistorysRepository {
+        return OrderHistorysRepositoryImpl(orderHistorysRemote, ordersHistoryLocal,ordersHistoryMapper)
     }
 }

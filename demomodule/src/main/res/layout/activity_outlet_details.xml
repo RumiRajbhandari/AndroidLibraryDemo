@@ -6,7 +6,7 @@
 
         <variable
             name="outlet"
-            type="com.rosia.domain.outletDetail.OutletDetail" />
+            type="com.rosia.domain.outletsDetail.OutletsDetail" />
     </data>
 
     <android.support.design.widget.CoordinatorLayout
