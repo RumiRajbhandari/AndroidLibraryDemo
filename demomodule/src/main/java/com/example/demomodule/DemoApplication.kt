@@ -8,7 +8,7 @@ import dagger.android.DaggerApplication
 /**
  * Created by rumi on 6/10/18.
  */
-class DemoApplication: DaggerApplication() {
+ open class DemoApplication: DaggerApplication() {
 
     override fun onCreate() {
         super.onCreate()

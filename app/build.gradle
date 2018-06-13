@@ -37,6 +37,8 @@ android {
 dependencies {
     def supportLib = "27.1.1"
     def roomVersion = "1.1.0"
+    def dagger2Version = "2.14.1"
+
 
     implementation project(':demomodule')
 
@@ -46,6 +48,13 @@ dependencies {
     implementation "com.android.support:appcompat-v7:$supportLib"
     implementation "com.android.support:design:$supportLib"
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+
+
+    kapt "com.google.dagger:dagger-compiler:$dagger2Version"
+    implementation "com.google.dagger:dagger:$dagger2Version"
+    implementation "com.google.dagger:dagger-android:$dagger2Version"
+    implementation "com.google.dagger:dagger-android-support:$dagger2Version"
+    kapt "com.google.dagger:dagger-android-processor:$dagger2Version"
 //    implementation "com.android.support:support-v4:$supportLib"
 
 //    kapt "com.android.databinding:compiler:3.1.0"
