@@ -12,8 +12,8 @@ import com.example.demomodule.databinding.ActivityOrderHistorysBinding
 import com.example.demomodule.outletDetail.formatDate
 import com.example.demomodule.outletDetail.formatMonths
 import com.rosia.domain.outletDetail.OrderHistory
-import com.v2px.sujin.expandables1.OrderHistoryChild
-import com.v2px.sujin.expandables1.OrderHistoryParent
+import com.v2px.sujin.expandables1.OrdersHistoryChild
+import com.v2px.sujin.expandables1.OrdersHistoryParent
 import com.xwray.groupie.ExpandableGroup
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Section
@@ -21,17 +21,17 @@ import com.xwray.groupie.kotlinandroidextensions.ViewHolder
 import javax.inject.Inject
 
 
-class OrderHistoryActivity : BaseActivity(), OrderHistoryContract.View {
+class OrdersHistoryActivity : BaseActivity(), OrdersHistoryContract.View {
 
     @Inject
-    lateinit var presenter: OrderHistoryContract.Presenter
+    lateinit var presenter: OrdersHistoryContract.Presenter
     private lateinit var groupAdapter: GroupAdapter<ViewHolder>
     private lateinit var binding: ActivityOrderHistorysBinding
 
     companion object {
         private const val KEY_OUTLET_ID = "_outletID"
         fun start(activity: Activity, outletId: Int) {
-            val intent = Intent(activity, OrderHistoryActivity::class.java)
+            val intent = Intent(activity, OrdersHistoryActivity::class.java)
             intent.putExtra(KEY_OUTLET_ID, outletId)
             activity.startActivity(intent)
         }
@@ -39,7 +39,7 @@ class OrderHistoryActivity : BaseActivity(), OrderHistoryContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        this.binding = DataBindingUtil.setContentView(this@OrderHistoryActivity, R.layout.activity_order_historys)
+        this.binding = DataBindingUtil.setContentView(this@OrdersHistoryActivity, R.layout.activity_order_historys)
         binding.toolbar.title = getString(R.string.order_history)
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -75,20 +75,20 @@ class OrderHistoryActivity : BaseActivity(), OrderHistoryContract.View {
         }
 
         groups.forEach {
-            ExpandableGroup(OrderHistoryMain(it.key)).apply {
+            ExpandableGroup(OrdersHistoryMain(it.key)).apply {
                 groupAdapter.add(this)
             }
             it.value.forEach {
-                ExpandableGroup(OrderHistoryParent(formatDate(it.date), it.orders)).apply {
+                ExpandableGroup(OrdersHistoryParent(formatDate(it.date), it.orders)).apply {
                     it.orders?.forEach {
-                        add(Section(OrderHistoryChild(it.skuName, it.quantity.toString())))
+                        add(Section(OrdersHistoryChild(it.skuName, it.quantity.toString())))
                     }
                     groupAdapter.add(this)
                 }
             }
         }
         rvBaseRecyclerView.apply {
-            layoutManager = LinearLayoutManager(this@OrderHistoryActivity)
+            layoutManager = LinearLayoutManager(this@OrdersHistoryActivity)
             adapter = groupAdapter
         }
     }

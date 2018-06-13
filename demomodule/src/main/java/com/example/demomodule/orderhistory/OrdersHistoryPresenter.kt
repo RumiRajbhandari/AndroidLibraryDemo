@@ -1,7 +1,7 @@
 package com.rosia.orderhistory
 
 import com.example.demomodule.outletDetail.formatMilliSecondToMonth
-import com.rosia.data.OrderHistoryRepositoryImpl
+import com.rosia.data.OrderHistorysRepositoryImpl
 import com.rosia.domain.outletDetail.OrderHistory
 import com.rosia.domain.outletDetail.OrderItem
 import com.rosia.exceptions.ErrorMessageFactory
@@ -9,7 +9,7 @@ import io.reactivex.disposables.Disposable
 import javax.inject.Inject
 
 
-class OrderHistoryPresenter @Inject constructor(var view: OrderHistoryContract.View, var repository: OrderHistoryRepositoryImpl) : OrderHistoryContract.Presenter {
+class OrdersHistoryPresenter @Inject constructor(var view: OrdersHistoryContract.View, var repository: OrderHistorysRepositoryImpl) : OrdersHistoryContract.Presenter {
     private var disposable: Disposable? = null
 
     override fun start() {

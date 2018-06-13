@@ -14,8 +14,8 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-        <activity android:name="com.rosia.outletdetail.OutletDetailActivity" />
-        <activity android:name="com.rosia.orderhistory.OrderHistoryActivity"/>
+        <activity android:name="com.rosia.outletdetail.OutletsDetailsActivity" />
+        <activity android:name="com.rosia.orderhistory.OrdersHistoryActivity"/>
 
     </application>
 

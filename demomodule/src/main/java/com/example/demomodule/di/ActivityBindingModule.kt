@@ -1,10 +1,10 @@
 package com.example.demomodule.di
 
 import com.rosia.di.scopes.ActivityScoped
-import com.rosia.orderhistory.OrderHistoryActivity
-import com.rosia.orderhistory.OrderHistoryActivityModule
-import com.rosia.outletdetail.OutletDetailActivity
-import com.rosia.outletdetail.OutletDetailActivityModule
+import com.rosia.orderhistory.OrdersHistoryActivity
+import com.rosia.orderhistory.OrdersHistoryActivityModule
+import com.rosia.outletdetail.OutletsDetailsActivity
+import com.rosia.outletdetail.OutletDetailsActivityModule
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -20,12 +20,12 @@ import dagger.android.ContributesAndroidInjector
 abstract class ActivityBindingModule {
 
     @ActivityScoped
-    @ContributesAndroidInjector(modules = [(OutletDetailActivityModule::class)])
-    internal abstract fun outletDetailActivity(): OutletDetailActivity
+    @ContributesAndroidInjector(modules = [(OutletDetailsActivityModule::class)])
+    internal abstract fun outletDetailActivity(): OutletsDetailsActivity
 
     @ActivityScoped
-    @ContributesAndroidInjector(modules = [(OrderHistoryActivityModule::class)])
-    internal abstract fun orderHistoryActivity(): OrderHistoryActivity
+    @ContributesAndroidInjector(modules = [(OrdersHistoryActivityModule::class)])
+    internal abstract fun orderHistoryActivity(): OrdersHistoryActivity
 
 
 }

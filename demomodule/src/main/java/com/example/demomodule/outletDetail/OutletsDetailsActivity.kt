@@ -15,7 +15,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.rosia.domain.outletDetail.CallHistory
 import com.rosia.domain.outletDetail.OutletDetail
 import com.rosia.googlemap.MapFragment
-import com.rosia.orderhistory.OrderHistoryActivity
+import com.rosia.orderhistory.OrdersHistoryActivity
 import com.xwray.groupie.ExpandableGroup
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Section
@@ -25,10 +25,10 @@ import kotlinx.android.synthetic.main.content_outlet_details.view.*
 import javax.inject.Inject
 
 
-class OutletDetailActivity : BaseActivity(),OutletDetailPageContract.View {
+class OutletsDetailsActivity : BaseActivity(),OutletDetailsPageContract.View {
 
     @Inject
-    lateinit var outletDetailPresenter: OutletDetailPageContract.Presenter
+    lateinit var outletDetailsPresenter: OutletDetailsPageContract.Presenter
 
     private lateinit var outletBinding: ActivityOutletDetailsBinding
     private val groupAdapter = GroupAdapter<ViewHolder>()
@@ -52,15 +52,15 @@ class OutletDetailActivity : BaseActivity(),OutletDetailPageContract.View {
         fabVisibility = intent.getBooleanExtra("visibility",false)
         token = intent.getStringExtra("token")
 
-        outletDetailPresenter.saveUserToken(User(token))
-        outletDetailPresenter.onGetOutletData(outletId)
+        outletDetailsPresenter.saveUserToken(User(token))
+        outletDetailsPresenter.onGetOutletData(outletId)
         outletBinding.root.rv_outlet_detail.apply {
-            layoutManager = LinearLayoutManager(this@OutletDetailActivity)
+            layoutManager = LinearLayoutManager(this@OutletsDetailsActivity)
             adapter = groupAdapter
         }
 
         outletBinding.root.tv_order_history.setOnClickListener {
-            OrderHistoryActivity.start(this, outletId)
+            OrdersHistoryActivity.start(this, outletId)
         }
 
         if (fabVisibility){
@@ -86,7 +86,7 @@ class OutletDetailActivity : BaseActivity(),OutletDetailPageContract.View {
         outletBinding.outlet = outletDetail
         outletId = this.outletId
         outletBinding.root.tv_order_history.setOnClickListener {
-            OrderHistoryActivity.start(this, outletId)
+            OrdersHistoryActivity.start(this, outletId)
         }
         outletLocation = LatLng(outletDetail.latitude!!.toDouble(), outletDetail.longitude!!.toDouble())
         supportFragmentManager
@@ -104,7 +104,7 @@ class OutletDetailActivity : BaseActivity(),OutletDetailPageContract.View {
     }
 
     companion object {
-        fun start(context: Context?,token:String, outletId: Int, fabButtonVisibility:Boolean=false) =context?.startActivity(Intent(context, OutletDetailActivity::class.java)
+        fun start(context: Context?,token:String, outletId: Int, fabButtonVisibility:Boolean=false) =context?.startActivity(Intent(context, OutletsDetailsActivity::class.java)
                 .putExtra("id", outletId)
                 .putExtra("visibility",fabButtonVisibility)
                 .putExtra("token",token))

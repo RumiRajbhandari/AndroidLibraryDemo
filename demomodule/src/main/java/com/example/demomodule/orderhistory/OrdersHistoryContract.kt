@@ -4,7 +4,7 @@ import com.rosia.base.BasePresenter
 import com.rosia.base.BaseView
 import com.rosia.domain.outletDetail.OrderHistory
 
-interface OrderHistoryContract {
+interface OrdersHistoryContract {
 
     interface View : BaseView<Presenter> {
         fun showOrderHistorySuccess(orderHistoryItems: List<OrderHistory>)

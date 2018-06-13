@@ -7,7 +7,7 @@ import com.rosia.domain.outletDetail.CallHistory
 import com.rosia.domain.outletDetail.CallHistoryData
 import com.rosia.domain.outletDetail.OutletDetail
 
-interface OutletDetailPageContract {
+interface OutletDetailsPageContract {
     interface View: BaseView<Presenter> {
         fun getOutletDetailSuccess(outletDetail: OutletDetail)
         fun getCallHistorySuccess(callHistoryList: List<CallHistory>)

@@ -1,8 +1,8 @@
 package com.example.demomodule.di
 
 import android.content.Context
-import com.example.demomodule.data.remote.ApiInterceptor
-import com.example.demomodule.data.remote.RetrofitApiService
+import com.example.demomodule.data.remote.ApiInterceptors
+import com.example.demomodule.data.remote.RetrofitApiServices
 import com.example.demomodule.pref.SharedPreferenceManager
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.google.gson.Gson
@@ -35,12 +35,12 @@ open class ApiModule {
 
     @Provides
     @Singleton
-    internal fun getHttpClient(apiInterceptor: ApiInterceptor): OkHttpClient {
+    internal fun getHttpClient(apiInterceptors: ApiInterceptors): OkHttpClient {
         val interceptor = HttpLoggingInterceptor()
         interceptor.level = HttpLoggingInterceptor.Level.BODY
         return OkHttpClient.Builder()
                 .addInterceptor(interceptor)
-                .addInterceptor(apiInterceptor)
+                .addInterceptor(apiInterceptors)
                 .writeTimeout(15, TimeUnit.SECONDS)
                 .readTimeout(15, TimeUnit.SECONDS)
                 .addNetworkInterceptor(StethoInterceptor())
@@ -49,13 +49,13 @@ open class ApiModule {
 //TODO change base url
     @Provides
     @Singleton
-    open fun remoteRepo(gson: Gson, client: OkHttpClient): RetrofitApiService {
+    open fun remoteRepo(gson: Gson, client: OkHttpClient): RetrofitApiServices {
         return Retrofit.Builder()
                 .baseUrl("http://89.31.63.171/api/v1/")
                 .client(client) //client is for logging the request and response
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.createAsync())
-                .build().create(RetrofitApiService::class.java)
+                .build().create(RetrofitApiServices::class.java)
     }
 
 

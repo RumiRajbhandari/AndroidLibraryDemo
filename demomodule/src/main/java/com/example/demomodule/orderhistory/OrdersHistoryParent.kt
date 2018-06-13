@@ -9,7 +9,7 @@ import com.xwray.groupie.kotlinandroidextensions.Item
 import com.xwray.groupie.kotlinandroidextensions.ViewHolder
 import kotlinx.android.synthetic.main.view_holder_order_history_parent.view.*
 
-class OrderHistoryParent(private var date: String? = null, var list: List<OrderItem>? = null) : Item(), ExpandableItem {
+class OrdersHistoryParent(private var date: String? = null, var list: List<OrderItem>? = null) : Item(), ExpandableItem {
     private lateinit var expandableGroup: ExpandableGroup
 
     override fun setExpandableGroup(onToggleListener: ExpandableGroup) {

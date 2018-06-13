@@ -6,7 +6,7 @@ import io.reactivex.Observable
 /**
  * Created by rumi on 5/17/18.
  */
-interface OutletDetailRepository {
+interface OutletDetailsRepository {
     fun getOutletDetail(id :Int): Observable<OutletResponseModel>
     fun getCallHistory(outletId: Int): Observable<CallHistoryResponseModel>
     fun getOrderHistory(routeId: Int): Observable<OrderHistoryResponseModel>

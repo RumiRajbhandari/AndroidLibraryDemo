@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.view_holder_order_history_header.view.*
 /**
  * Created by nabin on 4/18/18.
  */
-class OrderHistoryMain(private var months: String? = null) : Item(), ExpandableItem {
+class OrdersHistoryMain(private var months: String? = null) : Item(), ExpandableItem {
 
     private lateinit var expandableGroup: ExpandableGroup
 

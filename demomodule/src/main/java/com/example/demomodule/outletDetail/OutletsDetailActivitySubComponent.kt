@@ -8,8 +8,8 @@ import dagger.android.AndroidInjector
  */
 
 @Subcomponent
-interface OutletDetailActivitySubComponent : AndroidInjector<OutletDetailActivity> {
+interface OutletsDetailActivitySubComponent : AndroidInjector<OutletsDetailsActivity> {
 
     @Subcomponent.Builder
-    abstract class Builder : AndroidInjector.Builder<OutletDetailActivity>()
+    abstract class Builder : AndroidInjector.Builder<OutletsDetailsActivity>()
 }

@@ -10,16 +10,16 @@ import retrofit2.http.Query
 /**
  * this layer is responsible for network handling using retrofit2
  */
-interface RetrofitApiService {
+interface RetrofitApiServices {
 
 
     @GET("outlet/detail")
-    fun getOutletDetail(@Query("outlet_id") outletId:Int):Observable<BaseResponse<OutletResponseModel>>
+    fun getOutletDetail(@Query("outlet_id") outletId:Int):Observable<BaseResponses<OutletResponseModel>>
 
     @GET("calls/detail?projection=outlet-call-history")
-    fun getCallHistoryData( @Query("outlet_id") outletId: Int, @Query("timePeriod") timeperiod: Int): Observable<BaseResponse<CallHistoryResponseModel>>
+    fun getCallHistoryData( @Query("outlet_id") outletId: Int, @Query("timePeriod") timeperiod: Int): Observable<BaseResponses<CallHistoryResponseModel>>
 
     @GET("sales/detail?type=received")
-    fun getOrderHistoryData(@Query("outlet_id") routeId: Int, @Query("timePeriod") timeperiod: Int): Observable<BaseResponse<OrderHistoryResponseModel>>
+    fun getOrderHistoryData(@Query("outlet_id") routeId: Int, @Query("timePeriod") timeperiod: Int): Observable<BaseResponses<OrderHistoryResponseModel>>
 
 }

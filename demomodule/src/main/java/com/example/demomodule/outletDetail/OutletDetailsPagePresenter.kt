@@ -1,8 +1,8 @@
 package com.rosia.outletdetail
 
-import com.example.demomodule.data.repository.UserRepository
+import com.example.demomodule.data.repository.UsersRepository
 import com.example.demomodule.entity.User
-import com.rosia.data.source.repository.OutletDetailRepository
+import com.rosia.data.source.repository.OutletDetailsRepository
 import com.rosia.domain.outletDetail.*
 import com.rosia.exceptions.ErrorMessageFactory
 import io.reactivex.Observable
@@ -10,9 +10,9 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.functions.Function3
 
 
-class OutletDetailPagePresenter(private var outletDetailView: OutletDetailPageContract.View,
-                                private var repository: OutletDetailRepository,
-                                private var userRepository: UserRepository) : OutletDetailPageContract.Presenter {
+class OutletDetailsPagePresenter(private var outletDetailsView: OutletDetailsPageContract.View,
+                                 private var repository: OutletDetailsRepository,
+                                 private var usersRepository: UsersRepository) : OutletDetailsPageContract.Presenter {
 
     private var disposable = CompositeDisposable()
     override fun start() {
@@ -23,11 +23,11 @@ class OutletDetailPagePresenter(private var outletDetailView: OutletDetailPageCo
     }
 
     override fun saveUserToken(user: User) {
-        userRepository.saveUser(user)
+        usersRepository.saveUser(user)
     }
 
     override fun onGetOutletData(id: Int) {
-        outletDetailView.showLoading("Loading")
+        outletDetailsView.showLoading("Loading")
 
         Observable.zip(
                 repository.getOutletDetail(id),
@@ -44,7 +44,7 @@ class OutletDetailPagePresenter(private var outletDetailView: OutletDetailPageCo
 
                 },
                 {
-                    outletDetailView.showError(ErrorMessageFactory.createMessage(it))
+                    outletDetailsView.showError(ErrorMessageFactory.createMessage(it))
                 }, {
             onGetOutletDetail(id)
             onGetCallHistory(id)
@@ -53,25 +53,25 @@ class OutletDetailPagePresenter(private var outletDetailView: OutletDetailPageCo
     }
 
     override fun onGetOutletDetail(id: Int) {
-        outletDetailView.showLoading("Loading")
+        outletDetailsView.showLoading("Loading")
         disposable.add(repository.getOutletDetailLocal(id).subscribe(
                 {
-                    outletDetailView.getOutletDetailSuccess(it)
+                    outletDetailsView.getOutletDetailSuccess(it)
                 }, {
-            outletDetailView.showError(ErrorMessageFactory.createMessage(it))
+            outletDetailsView.showError(ErrorMessageFactory.createMessage(it))
         }))
     }
 
     override fun onGetCallHistory(id: Int) {
         disposable.add(repository.getCallHistoryLocal(id).subscribe(
                 {
-                    outletDetailView.getCallHistorySuccess(it)
+                    outletDetailsView.getCallHistorySuccess(it)
                 }, {
-            outletDetailView.showError(ErrorMessageFactory.createMessage(it))
+            outletDetailsView.showError(ErrorMessageFactory.createMessage(it))
         }))
     }
 
     override fun showError(errorMessage: String) {
-        outletDetailView.showError(errorMessage)
+        outletDetailsView.showError(errorMessage)
     }
 }

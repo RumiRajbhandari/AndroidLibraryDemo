@@ -4,10 +4,9 @@ import com.example.demomodule.data.local.orderHistory.OrderHistoryLocal
 import com.example.demomodule.data.local.outletDetail.OutletDetailLocal
 import com.example.demomodule.data.mapper.OrderHistoryMapper
 import com.example.demomodule.data.mapper.OutletMapper
-import com.example.demomodule.data.remote.NotNullMapper
-import com.rosia.data.source.remote.OrderHistoryRemote
+import com.rosia.data.source.remote.OrderHistorysRemote
 import com.rosia.data.source.remote.outletDetail.OutletDetailRemote
-import com.rosia.data.source.repository.OutletDetailRepository
+import com.rosia.data.source.repository.OutletDetailsRepository
 import com.rosia.di.qualifiers.Local
 import com.rosia.di.qualifiers.Remote
 import com.rosia.domain.outletDetail.*
@@ -19,15 +18,15 @@ import javax.inject.Inject
 /**
  * Created by rumi on 5/17/18.
  */
-class OutletDetailRepositoryImpl @Inject constructor(@Remote private var outletDetailRemote: OutletDetailRemote,
-                                                     @Local private var outletDetailLocal: OutletDetailLocal,
-                                                     @Remote private var orderHistoryRemote: OrderHistoryRemote,
-                                                     @Local private var orderHistoryLocal: OrderHistoryLocal,
-                                                     private var outletMapper: OutletMapper,
-                                                     private var orderHistoryMapper: OrderHistoryMapper) : OutletDetailRepository {
+class OutletDetailsRepositoryImpl @Inject constructor(@Remote private var outletDetailRemote: OutletDetailRemote,
+                                                      @Local private var outletDetailLocal: OutletDetailLocal,
+                                                      @Remote private var orderHistorysRemote: OrderHistorysRemote,
+                                                      @Local private var orderHistoryLocal: OrderHistoryLocal,
+                                                      private var outletMapper: OutletMapper,
+                                                      private var orderHistoryMapper: OrderHistoryMapper) : OutletDetailsRepository {
     override fun getOutletDetail(id: Int): Observable<OutletResponseModel> {
 //        return outletDetailRemote.getOutletDetail(id)
-//                .flatMap(NotNullMapper())
+//                .flatMap(NotNullMappers())
 //                .doOnNext { it -> outletDetailLocal.insertOutletDetail(outletMapper.mapToEntity(it.outletDetail)) }
 //                .subscribeOn(Schedulers.io())
 //                .observeOn(AndroidSchedulers.mainThread())
@@ -42,7 +41,7 @@ class OutletDetailRepositoryImpl @Inject constructor(@Remote private var outletD
 
     override fun getCallHistory(outletId: Int): Observable<CallHistoryResponseModel> {
 //        return outletDetailRemote.getCallHistory(outletId)
-//                .flatMap(NotNullMapper())
+//                .flatMap(NotNullMappers())
 //                .doOnNext { it -> outletDetailLocal.insertCallHistoryEntity(outletMapper.mapCallHistoryToEntity(it.calls)) }
 //                .subscribeOn(Schedulers.io())
 //                .observeOn(AndroidSchedulers.mainThread())
@@ -76,8 +75,8 @@ class OutletDetailRepositoryImpl @Inject constructor(@Remote private var outletD
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
 
-//        return orderHistoryRemote.getOrderHistory(outletId)
-//                .flatMap(NotNullMapper())
+//        return orderHistorysRemote.getOrderHistory(outletId)
+//                .flatMap(NotNullMappers())
 //                .doOnNext { it -> orderHistoryLocal.insertOrderHistory(orderHistoryMapper.mapOrderItemListToEntity(it.orderHistoryList, outletId)) }
 //                .subscribeOn(Schedulers.io())
 //                .observeOn(AndroidSchedulers.mainThread())

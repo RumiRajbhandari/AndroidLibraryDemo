@@ -7,7 +7,7 @@ import android.widget.Toast
 import com.example.demomodule.OnFabButtonClicked
 import com.example.demomodule.FabButtonClickListener
 import com.example.rumi.outletutildemo.databinding.ActivityMainBinding
-import com.rosia.outletdetail.OutletDetailActivity
+import com.rosia.outletdetail.OutletsDetailsActivity
 
 class MainActivity : AppCompatActivity(), OnFabButtonClicked {
     private lateinit var mainActivity: ActivityMainBinding
@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity(), OnFabButtonClicked {
         super.onCreate(savedInstanceState)
         mainActivity = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        OutletDetailActivity.start(this, "xyz",
+        OutletsDetailsActivity.start(this, "xyz",
                 1,true)
         FabButtonClickListener.setOnFabButtonClickListener(this)
     }

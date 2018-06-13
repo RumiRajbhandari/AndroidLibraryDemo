@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.view_holder_order_history_child.view.*
 /**
  * Created by nabin on 4/18/18.
  */
-class OrderHistoryChild( var sku: String? = null, var quantity: String? = null) : Item() {
+class OrdersHistoryChild(var sku: String? = null, var quantity: String? = null) : Item() {
     override fun bind(viewHolder: ViewHolder, position: Int) {
         viewHolder.itemView.orderHistoryItemName.text = sku
         viewHolder.itemView.orderHistoryItemQty.text = quantity

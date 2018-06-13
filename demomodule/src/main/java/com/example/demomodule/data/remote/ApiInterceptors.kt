@@ -13,7 +13,7 @@ import javax.inject.Singleton
 
 
 @Singleton
-class ApiInterceptor @Inject constructor(private val context: Context, private val sharedPreferenceManager: SharedPreferenceManager) : Interceptor {
+class ApiInterceptors @Inject constructor(private val context: Context, private val sharedPreferenceManager: SharedPreferenceManager) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         if (!isNetworkAvailable(context)) {
             throw NetworkNotAvailableException()
