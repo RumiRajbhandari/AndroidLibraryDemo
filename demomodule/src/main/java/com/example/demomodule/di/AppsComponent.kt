@@ -1,6 +1,7 @@
 package com.example.demomodule.di
 
 import android.app.Application
+import com.example.demomodule.AppComponentBase
 import com.example.demomodule.DemoApplication
 import dagger.BindsInstance
 import dagger.Component
@@ -28,7 +29,7 @@ import javax.inject.Singleton
     (AndroidSupportInjectionModule::class),
     (AppModule::class),
     (ActivitiesBindingModule::class)])
-interface AppsComponent : AndroidInjector<DemoApplication>{
+interface AppsComponent : AndroidInjector<AppComponentBase>{
     @Component.Builder
     interface Builder{
         @BindsInstance
